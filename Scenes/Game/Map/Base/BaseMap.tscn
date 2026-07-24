@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d3fq5517wi4qi" path="res://Scenes/Game/Map/Base/BaseMap.cs" id="1_mbmb4"]
 [ext_resource type="TileSet" uid="uid://sbg0dqcyjy75" path="res://Resources/Game/Tilesets/base.tres" id="2_0ceyt"]
+[ext_resource type="Shader" uid="uid://bm4xqbfxatdon" path="res://Resources/Assets/Shaders/bevel.gdshader" id="3_7sxqa"]
 [ext_resource type="Script" uid="uid://d1d1doytfwpij" path="res://Scenes/Game/Map/Base/PlayerCamera.cs" id="3_eywhk"]
 [ext_resource type="Script" uid="uid://chfweai5rjgxd" path="res://Scenes/Game/Map/Base/Player.cs" id="3_fvvxy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88ity"]
+shader = ExtResource("3_7sxqa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sxqa"]
+shader = ExtResource("3_7sxqa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ceyt"]
 
@@ -11,13 +18,12 @@
 y_sort_enabled = true
 script = ExtResource("1_mbmb4")
 
-
-
 [node name="GroundLayer" type="TileMapLayer" parent="." unique_id=1162312714]
 tile_set = ExtResource("2_0ceyt")
 
 [node name="WallLayer" type="TileMapLayer" parent="." unique_id=1556353250]
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_88ity")
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 7, 0, 17, 0, 0, 0)
 tile_set = ExtResource("2_0ceyt")
 
@@ -29,6 +35,7 @@ y_sort_enabled = true
 script = ExtResource("3_fvvxy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1300860398]
+material = SubResource("ShaderMaterial_7sxqa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1717775527]
 shape = SubResource("RectangleShape2D_0ceyt")
@@ -36,4 +43,6 @@ shape = SubResource("RectangleShape2D_0ceyt")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1917553329]
 position = Vector2(483, 279)
 zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("3_eywhk")

@@ -6,6 +6,11 @@
 [node name="MainGame" type="Node2D" unique_id=979223031]
 script = ExtResource("1_k74qk")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=442862693]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [node name="GameLayout" type="HBoxContainer" parent="." unique_id=99868553]
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +25,7 @@ layout_mode = 2
 script = ExtResource("2_88ity")
 
 [node name="GameViewport" type="SubViewport" parent="GameLayout/GameViewportContainer" unique_id=2053474139]
+transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(1420, 1080)

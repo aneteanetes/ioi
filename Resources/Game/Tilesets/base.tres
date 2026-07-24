@@ -2173,6 +2173,7 @@ texture = ExtResource("2_tv1lf")
 
 [resource]
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 custom_data_layer_0/name = "type"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_4dk8h")

@@ -1,3 +1,5 @@
+using Godot;
+
 public interface IGameCamera
 {    
     /// <summary>

@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*uid://cox7gjuorgu5u"
+Global="*uid://b864es2y00063"
 SceneManager="*uid://fx7dqrmgp5km"
 
 [display]

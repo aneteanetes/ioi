@@ -10,4 +10,8 @@
 		<PackageReference Include="Geranium.Reflection" Version="2.1.4" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
 </Project>

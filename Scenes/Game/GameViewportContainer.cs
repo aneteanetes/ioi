@@ -1,4 +1,6 @@
+using Geranium.Reflection;
 using Godot;
+using ioi.Source.Scenes;
 using System;
 
 public partial class GameViewportContainer : SubViewportContainer
@@ -27,7 +29,7 @@ public partial class GameViewportContainer : SubViewportContainer
 		if (@event is InputEventMouseMotion mouseMotion && _isDragging)
 			currentCamera.Offset -= mouseMotion.Relative / currentCamera.Zoom;
 	}
-
+	
 	private void ProcessMouse(InputEventMouseButton mouseButton, Camera2D currentCamera)
 	{
 		if (mouseButton.ButtonIndex== MouseButton.Right && !mouseButton.Pressed)
@@ -39,22 +41,14 @@ public partial class GameViewportContainer : SubViewportContainer
 					return;
 				
 				var slot = GetNode<Node2D>("GameViewport/SceneSlot");
-
-				// ВАЖНО: Получаем координаты мыши внутри игрового мира SubViewport,
-				// учитывая текущую позицию камеры, её Offset и Zoom.
-				Vector2 clickWorldPosition = _subViewport.GetMousePosition();
+				var slotScene = slot.GetChild<BaseMap>(0);
 				
-				// Ищем персонажа на сцене. 
-				// Предполагается, что узел Player находится прямо внутри SubViewport (как на вашем скриншоте)
-				var player = _subViewport.GetNodeOrNull<Player>("Player"); 
+				Vector2 localMousePos = _subViewport.GetMousePosition();
+				Vector2 clickWorldPosition = currentCamera.GetCanvasTransform().AffineInverse() * localMousePos;
 				
-				// Если структура сложнее (например, SubViewport/BaseMap/Player), используйте:
-				// var player = _subViewport.GetNodeOrNull<Player>("BaseMap/Player");
-				
-				if (player != null)
+				if(slotScene is IViewportScene viewportScene)
 				{
-					player.SetTargetPosition(clickWorldPosition);
-					GetViewport().SetInputAsHandled(); // Поглощаем клик
+					viewportScene.ProcessClick(clickWorldPosition,localMousePos);
 				}
 			}
 
