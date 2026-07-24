@@ -1,0 +1,18 @@
+[
+  {
+    "ObjectId": "ca6419da-2e62-43a4-ad8c-5a8a0e6de0b1",
+    "MaxHP": 25,
+    "NowHP": 25
+  },
+  {
+    "ObjectId": "26bcfc5f-cf41-4cd2-bce6-c1d01b61c292",
+    "MaxHP": 25,
+    "NowHP": 25,
+    "Portrait": "Assets/Images/Objects/snow/slime2_m.jpg",
+    "PortraitBattle": "Assets/Images/Objects/snow/slime2_c.jpg",
+    "Image": "Assets/Images/Objects/snow/slime2_s.png",
+    "Properties": {
+      "AnimationsFile": "Assets/Sprites/Creatures/Slime2/slime2.json"
+    }
+  }
+]

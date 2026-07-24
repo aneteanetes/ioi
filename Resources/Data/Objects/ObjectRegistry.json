@@ -1,0 +1,142 @@
+[
+  {
+    "Name": "RoadSnow",
+    "LandscapeComplexity": "4d12",
+    "Portrait": "Assets/Images/Objects/grounds/snowroad.jpg"
+  },
+  {
+    "Name": "GrassSnow",
+    "LandscapeComplexity": "3d8",
+    "Portrait": "Assets/Images/Objects/grounds/snowgrass.jpg"
+  },
+  {
+    "ObjectId": "4cfaad15-8922-45bc-b595-8297950e09f7",
+    "CreatureId": "ca6419da-2e62-43a4-ad8c-5a8a0e6de0b1",
+    "Reputation": "Neutral",
+    "DangerRating": "Dangerous",
+    "Name": "Virgil",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/npc/virgil_m.jpg",
+    "Image": "Assets/Images/Objects/npc/virgil_s.png",
+    "ObjectType": "NPC",
+    "Dialogue": "Virgil/VirgilInitiate.json"
+  },
+  {
+    "ObjectId": "f760308c-9c73-46b2-bfdb-88158810abf9",
+    "Name": "Door",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/fortdoor_m.jpg",
+    "Image": "Assets/Images/Objects/snow/fortdoor_s.png",
+    "ObjectType": "Door"
+  },
+  {
+    "ObjectId": "a46617e2-bbb4-4b77-a9dd-6f6645d58e28",
+    "Name": "Well",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowwell_m.jpg",
+    "Image": "Assets/Images/Objects/snow/snowwell_s.png",
+    "ObjectType": "Object"
+  },
+  {
+    "ObjectId": "6da991c9-0980-4117-9bb5-61410fb80577",
+    "Name": "Tree",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowtree1_m.png",
+    "Image": "Assets/Images/Objects/snow/snowtree1_s.png",
+    "ObjectType": "Tree"
+  },
+  {
+    "ObjectId": "dbcd8dd4-6c9c-4833-83b0-c08c26d475e7",
+    "Name": "Tree",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowtree1_m.png",
+    "Image": "Assets/Images/Objects/snow/snowtree1_s.png",
+    "ObjectType": "Tree"
+  },
+  {
+    "ObjectId": "676ce1ad-21db-4521-8926-448a02d6bd4a",
+    "Name": "Tree",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowtree2_m.png",
+    "Image": "Assets/Images/Objects/snow/snowtree2_s.png",
+    "ObjectType": "Tree"
+  },
+  {
+    "ObjectId": "ce09e053-5900-4ea5-8d45-d526daf4415d",
+    "Name": "Tree",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowtree2_m.png",
+    "Image": "Assets/Images/Objects/snow/snowtree2_s.png",
+    "ObjectType": "Tree"
+  },
+  {
+    "ObjectId": "69c18aa7-f01d-42a7-a5b8-32f196e5708c",
+    "Name": "Tree",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowtree2_m.jpg",
+    "Image": "Assets/Images/Objects/snow/snowtree2_s.png",
+    "ObjectType": "Tree"
+  },
+  {
+    "ObjectId": "c615c520-9b43-40fa-bb88-06214038d6c3",
+    "Name": "Tree",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowtree3_m.jpg",
+    "Image": "Assets/Images/Objects/snow/snowtree3_s.png",
+    "ObjectType": "Tree"
+  },
+  {
+    "ObjectId": "6575ab12-829c-4716-9e8e-096094f675f8",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/hermitage_m.jpg",
+    "Image": "Assets/Images/Objects/snow/hermitage_s.png",
+    "ObjectType": "Door"
+  },
+  {
+    "Name": "Wall",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowwall_m.jpg",
+    "Image": "Assets/Images/Objects/snow/snowwall_s.png",
+    "ObjectType": "Wall"
+  },
+  {
+    "ObjectId": "49f095f4-5902-4839-b27b-d79a178a2b38",
+    "Name": "SnowChest",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/snowchest_m.jpg",
+    "Image": "Assets/Images/Objects/snow/snowchest_s.png",
+    "ObjectType": "Container",
+    "LootTableId": "31957acc-85fa-45f4-ad08-d7843e08e856"
+  },
+  {
+    "ObjectId": "80ff96bc-0cbf-4af4-b58c-8d45d59ab8a4",
+    "RevealComplexity": "1d4",
+    "Name": "SnowFootprints",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/footprints_m.jpg",
+    "Image": "Assets/Images/Objects/snow/footprints_s.png",
+    "ObjectType": "Ground",
+    "GroundType": "Footprints"
+  },
+  {
+    "ObjectId": "b0bf0500-f78d-41b1-8a21-c83f31e8ce2f",
+    "RevealComplexity": "1d4",
+    "Name": "SnowWoodenBox",
+    "Cursor": "Pointer",
+    "Portrait": "Assets/Images/Objects/snow/woodenbox_m.jpg",
+    "Image": "Assets/Images/Objects/snow/woodenbox_s.png",
+    "ObjectType": "Container",
+    "LootTableId": "1a09ff8f-cc85-4fab-922d-bada8418a33b"
+  },
+  {
+    "ObjectId": "d507587c-75c6-4dd4-9c38-e4b4eb71b172",
+    "Name": "Slime2",
+    "Portrait": "Assets/Images/Objects/snow/slime2_m.jpg",
+    "Image": "Assets/Images/Objects/snow/slime2_s.png",
+    "ObjectType": "Creature",
+    "CreatureId": "26bcfc5f-cf41-4cd2-bce6-c1d01b61c292",
+    "EncounterId": "1a1d6a0f-7494-4965-9b6c-f41308ec0dc9",
+    "Reputation": "Unfriendly",
+    "DangerRating": "Neutral"
+  }
+]

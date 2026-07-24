@@ -1,0 +1,9 @@
+{
+  "Uninjured": "#00c40a",
+  "SlightlyWounded": "#67e66e",
+  "Wounded": "#d4e300",
+  "BadlyWounded": "#e37900",
+  "GravelyWounded": "#f22000",
+  "NearDeath": "#851d0d",
+  "Dead": "#696969"
+}

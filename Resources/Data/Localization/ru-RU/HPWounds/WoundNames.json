@@ -1,0 +1,9 @@
+{
+  "Uninjured": "Здоров",
+  "SlightlyWounded": "Легко ранен",
+  "Wounded": "Ранен",
+  "BadlyWounded": "Серьезно ранен",
+  "GravelyWounded": "Тяжело ранен",
+  "NearDeath": "При смерти",
+  "Dead": "Без сознания"
+}

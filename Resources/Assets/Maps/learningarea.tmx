@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="left-up" width="30" height="26" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#000000" nextlayerid="9" nextobjectid="158">
+ <properties>
+  <property name="AreaName" value="Underpeaks"/>
+  <property name="AreaObjectPostfix" value="Snow"/>
+  <property name="newversion" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" name="TilesAndCollisions" tilewidth="16" tileheight="16" tilecount="1078" columns="49">
+  <image source="../Tilesets/colored-transparent_packed.png" trans="000000" width="784" height="352"/>
+  <tile id="1">
+   <properties>
+    <property name="Color" type="color" value="#ff3b4a58"/>
+    <property name="GroundType" value="Road"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Color" type="color" value="#ff3b4a58"/>
+    <property name="GroundType" value="Road"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Color" type="color" value="#ff3b4a58"/>
+    <property name="GroundType" value="Road"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="Color" type="color" value="#ff3b4a58"/>
+    <property name="GroundType" value="Road"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="Color" type="color" value="#ff22907e"/>
+    <property name="GroundType" value="Grass"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="Color" type="color" value="#ff22907e"/>
+    <property name="GroundType" value="Grass"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="Color" type="color" value="#ff22907e"/>
+    <property name="GroundType" value="Grass"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="Color" type="color" value="#ff5b5b5b"/>
+    <property name="NoBounds" type="bool" value="true"/>
+    <property name="ObjectId" type="int" value="13"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="Color" type="color" value="#ff5b5b5b"/>
+    <property name="NoBounds" type="bool" value="true"/>
+    <property name="ObjectId" value="80ff96bc-0cbf-4af4-b58c-8d45d59ab8a4"/>
+    <property name="ObjectType" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="Color" type="color" value="#ff36bbd9"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="ObjectId" value="dbcd8dd4-6c9c-4833-83b0-c08c26d475e7"/>
+    <property name="ObjectType" value="Tree"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="4" y="6" width="8" height="5"/>
+    <object id="2" x="6.96875" y="0.90625" width="2.03125" height="14.0313"/>
+    <object id="3" x="4.96875" y="3.96875" width="6.0625" height="7.96875"/>
+    <object id="4" x="6" y="1.96875" width="3.96875" height="1.96875"/>
+    <object id="5" x="7.86108" y="0.822458">
+     <properties>
+      <property name="ObjectType" value="Hull"/>
+     </properties>
+     <polygon points="0.141496,0.176665 -4.0144,5.26457 -3.97467,10.4298 -1.10375,12.4989 -0.984724,14.3002 1.29921,14.2936 1.30797,12.5362 4.31863,10.704 4.37928,5.14091"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="Color" type="color" value="#ff36bbd9"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="ObjectId" value="676ce1ad-21db-4521-8926-448a02d6bd4a"/>
+    <property name="ObjectType" value="Tree"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="8" width="14" height="4"/>
+    <object id="2" x="2" y="6" width="13" height="2"/>
+    <object id="3" x="3" y="5" width="12" height="1"/>
+    <object id="4" x="4" y="4" width="10" height="1"/>
+    <object id="5" x="9" y="3" width="5" height="1"/>
+    <object id="6" x="10" y="2" width="3" height="1"/>
+    <object id="7" x="11" y="1" width="1" height="1"/>
+    <object id="8" x="2" y="12" width="5" height="3"/>
+    <object id="10" x="11" y="12" width="1" height="2"/>
+   </objectgroup>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="Color" type="color" value="#ff36bbd9"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="ObjectId" value="69c18aa7-f01d-42a7-a5b8-32f196e5708c"/>
+    <property name="ObjectType" value="Tree"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="4.03125" y="4.03125" width="7.96875" height="8.96875"/>
+    <object id="2" x="3.03125" y="6.03125" width="9.96875" height="5.9375"/>
+    <object id="3" x="7" y="13.0313" width="2" height="1.96875"/>
+    <object id="4" x="5" y="1.9375" width="5.96875" height="2.09375"/>
+    <object id="5" x="6.09375" y="1" width="3.9375" height="0.90625"/>
+   </objectgroup>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Color" type="color" value="#ff36bbd9"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="ObjectId" value="6da991c9-0980-4117-9bb5-61410fb80577"/>
+    <property name="ObjectType" value="Tree"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="6.96875" y="9" width="2.09375" height="5.9375"/>
+    <object id="2" x="5.96875" y="10.9688" width="4" height="1"/>
+    <object id="3" x="4.96875" y="9.96875" width="6.03125" height="0.9375"/>
+    <object id="4" x="2.96875" y="9" width="10" height="0.96875"/>
+    <object id="5" x="1.96875" y="1.96875" width="12" height="6.96875"/>
+    <object id="6" x="2.96875" y="0.96875" width="10" height="0.9375"/>
+   </objectgroup>
+  </tile>
+  <tile id="101">
+   <properties>
+    <property name="Color" type="color" value="#ff36bbd9"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="ObjectId" value="c615c520-9b43-40fa-bb88-06214038d6c3"/>
+    <property name="ObjectType" value="Tree"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2" y="8.03125" width="4.96875" height="4.9375"/>
+    <object id="2" x="3.96875" y="12.9688" width="1" height="1.96875"/>
+    <object id="3" x="9.96875" y="12.0313" width="1" height="1.90625"/>
+    <object id="4" x="0.96875" y="10" width="12.9375" height="1.96875"/>
+    <object id="5" x="6.96875" y="9" width="8" height="1.9375"/>
+    <object id="6" x="3" y="6.0625" width="9.9375" height="1.96875"/>
+    <object id="7" x="6.96875" y="7.03125" width="7.03125" height="1.96875"/>
+    <object id="8" x="3.96875" y="3.96875" width="1" height="2.03125"/>
+    <object id="9" x="8" y="4.96875" width="4.9375" height="1.09375"/>
+    <object id="10" x="9" y="3" width="2.9375" height="1.96875"/>
+    <object id="11" x="9.96875" y="0.96875" width="1.03125" height="2.03125"/>
+   </objectgroup>
+  </tile>
+  <tile id="102">
+   <properties>
+    <property name="Color" type="color" value="#ff36bbd9"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="ObjectId" value="ce09e053-5900-4ea5-8d45-d526daf4415d"/>
+    <property name="ObjectType" value="Tree"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="6.03125" y="14" width="3.9375" height="1.03125"/>
+    <object id="3" x="3.96875" y="1.96875" width="7.96875" height="8.96875"/>
+    <object id="4" x="7" y="10.9688" width="1.9375" height="2.9375"/>
+    <object id="5" x="0.96875" y="5.03125" width="3.03125" height="3.90625"/>
+    <object id="6" x="11.9688" y="5" width="3.03125" height="3.9375"/>
+    <object id="7" x="2.03125" y="2.9375" width="11.9375" height="7.03125"/>
+    <object id="8" x="3.03125" y="1.96875" width="9.96875" height="0.9375"/>
+    <object id="9" x="4.9375" y="1" width="6.0625" height="0.9375"/>
+   </objectgroup>
+  </tile>
+  <tile id="653">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="7">
+    <object id="21" x="1" y="1" width="7" height="14"/>
+    <object id="24" x="8" y="1" width="7" height="7"/>
+   </objectgroup>
+  </tile>
+  <tile id="654">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="1" width="14" height="7"/>
+   </objectgroup>
+  </tile>
+  <tile id="655">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="8" y="1" width="6.96875" height="13.9688"/>
+    <object id="2" x="0.9375" y="0.96875" width="7" height="7"/>
+   </objectgroup>
+  </tile>
+  <tile id="673">
+   <properties>
+    <property name="Color" type="color" value="#ffbab2a6"/>
+   </properties>
+  </tile>
+  <tile id="690">
+   <properties>
+    <property name="Color" type="color" value="#ff9fd5e1"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2.03125" y="4.9375" width="12" height="8"/>
+    <object id="2" x="3" y="3.96875" width="9.96875" height="9.96875"/>
+    <object id="3" x="4.9375" y="2.90625" width="6.09375" height="12.0625"/>
+    <object id="4" x="2.29846" y="5.47663">
+     <properties>
+      <property name="ObjectType" value="Hull"/>
+     </properties>
+     <polygon points="0,0 3.03276,-1.5311 3.0622,-2.17887 8.42105,-2.29665 8.36216,-1.41332 11.3949,0.0883327 11.5421,6.83106 8.4505,8.27383 8.4505,9.12771 2.97387,9.21605 2.88554,8.09717 0.117777,6.97828"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="702">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.9375" y="0.96875" width="7.03125" height="14.0625"/>
+   </objectgroup>
+  </tile>
+  <tile id="704">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="8" y="0.9375" width="7" height="14"/>
+   </objectgroup>
+  </tile>
+  <tile id="705">
+   <properties>
+    <property name="Color" type="color" value="#ffcfc6b8"/>
+   </properties>
+  </tile>
+  <tile id="750">
+   <properties>
+    <property name="Color" type="color" value="#ffbf7958"/>
+    <property name="ObjectId" value="b0bf0500-f78d-41b1-8a21-c83f31e8ce2f"/>
+   </properties>
+   <objectgroup draworder="index" id="3">
+    <object id="3" x="2.96875" y="1.9375" width="10.0625" height="12.0938"/>
+   </objectgroup>
+  </tile>
+  <tile id="751">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="1" width="7" height="13.9688"/>
+    <object id="2" x="8.09375" y="8" width="6.90625" height="7"/>
+   </objectgroup>
+  </tile>
+  <tile id="752">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="7.96875" width="14.9375" height="7.0625"/>
+   </objectgroup>
+  </tile>
+  <tile id="753">
+   <properties>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="8" y="1" width="6.96875" height="13.9688"/>
+    <object id="2" x="1" y="7.96875" width="6.96875" height="7"/>
+   </objectgroup>
+  </tile>
+  <tile id="790">
+   <properties>
+    <property name="ObjectType" value="Door"/>
+   </properties>
+  </tile>
+  <tile id="839">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="IsLocked" type="bool" value="true"/>
+    <property name="ObjectType" value="Door"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="0.96875" width="14.0313" height="14.0625"/>
+    <object id="2" x="1.20721" y="1.29555">
+     <properties>
+      <property name="ObjectType" value="Hull"/>
+     </properties>
+     <polygon points="0,0 0.0883327,13.456 13.5444,13.5149 13.6032,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="843">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.942917" y="0.970556" width="14" height="14.0001"/>
+    <object id="2" x="-8.88178e-16" y="0.0588885">
+     <properties>
+      <property name="ObjectType" value="Hull"/>
+     </properties>
+     <polygon points="0,0 0.104011,15.8306 15.9483,15.8999 16.0177,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="888">
+   <properties>
+    <property name="ObjectType" value="Door"/>
+   </properties>
+  </tile>
+  <tile id="893">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.96875" y="1.03125" width="14.0625" height="13.9063"/>
+    <object id="2" x="-0.0588885" y="0.0294442">
+     <properties>
+      <property name="ObjectType" value="Hull"/>
+     </properties>
+     <polygon points="0,0 0.104393,15.8306 16.007,15.8999 16.0765,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="947">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="6.03125" width="4.0625" height="8.875"/>
+    <object id="2" x="5.96875" y="0.96875" width="8.96875" height="5.90625"/>
+    <object id="3" x="4.03125" y="2" width="1.90625" height="4.03125"/>
+    <object id="4" x="5.03125" y="6.0625" width="1.9375" height="1.875"/>
+    <object id="5" x="2.96875" y="2.96875" width="1.0625" height="3.03125"/>
+    <object id="6" x="1.9375" y="4" width="1.0625" height="2"/>
+   </objectgroup>
+  </tile>
+  <tile id="948">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.96875" y="0.96875" width="14.1563" height="6"/>
+   </objectgroup>
+  </tile>
+  <tile id="949">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.96875" y="0.96875" width="9" height="5.96875"/>
+    <object id="2" x="11" y="5.96875" width="3.9375" height="8.96875"/>
+    <object id="3" x="10.0625" y="1.9375" width="1.9375" height="3.96875"/>
+    <object id="4" x="12.0625" y="4" width="1.9375" height="1.9375"/>
+    <object id="5" x="12.0938" y="3" width="0.9375" height="1"/>
+    <object id="6" x="8.96875" y="5.90625" width="2" height="2.03125"/>
+   </objectgroup>
+  </tile>
+  <tile id="986">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="true"/>
+    <property name="IsLocked" type="bool" value="false"/>
+    <property name="ObjectType" value="Door"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.03125" y="6.90625" width="13.9375" height="8.09375"/>
+    <object id="3" x="1.90625" y="5.9375" width="12.0625" height="0.9375"/>
+    <object id="4" x="2.9375" y="4.96875" width="10.0625" height="0.96875"/>
+    <object id="5" x="3.90625" y="3.96875" width="8.03125" height="0.96875"/>
+    <object id="6" x="4.9375" y="3" width="6.0625" height="0.96875"/>
+    <object id="7" x="5.9375" y="2" width="4.03125" height="0.96875"/>
+    <object id="8" x="6.96875" y="1" width="2" height="1"/>
+   </objectgroup>
+  </tile>
+  <tile id="996">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.9375" y="1" width="4.03125" height="13.9688"/>
+   </objectgroup>
+  </tile>
+  <tile id="998">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="10.9375" y="0.96875" width="4.03125" height="14.0313"/>
+   </objectgroup>
+  </tile>
+  <tile id="1045">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="6.03125" y="8.96875" width="8.9375" height="5.9375"/>
+    <object id="2" x="0.96875" y="0.96875" width="4" height="8.96875"/>
+    <object id="3" x="3.90625" y="8" width="3.0625" height="5.9375"/>
+    <object id="4" x="1.96875" y="9.9375" width="1.90625" height="2.03125"/>
+    <object id="5" x="2.9375" y="12" width="0.96875" height="0.9375"/>
+   </objectgroup>
+  </tile>
+  <tile id="1046">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="9" width="14" height="5.96875"/>
+   </objectgroup>
+  </tile>
+  <tile id="1047">
+   <properties>
+    <property name="Color" type="color" value="#ffafbacf"/>
+    <property name="IsHalfed" type="bool" value="false"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="11.0313" y="1" width="4" height="8.9375"/>
+    <object id="2" x="1" y="9.03125" width="9" height="5.875"/>
+    <object id="3" x="8.9375" y="8" width="3.03125" height="5.9375"/>
+    <object id="4" x="12" y="9.96875" width="0.96875" height="2.96875"/>
+    <object id="5" x="13.0625" y="9.96875" width="0.90625" height="2"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="1079" name="virgil" tilewidth="16" tileheight="24" tilecount="12" columns="4">
+  <image source="../Tilesets/virgil.png" trans="000000" width="64" height="72"/>
+ </tileset>
+ <tileset firstgid="1091" name="cursors" tilewidth="16" tileheight="16" tilecount="220" columns="20">
+  <image source="../Tilesets/cursor_tilemap_packed.png" trans="000000" width="320" height="176"/>
+ </tileset>
+ <tileset firstgid="1311" name="boardIconsDefault" tilewidth="64" tileheight="64" tilecount="273" columns="21">
+  <image source="../Tilesets/boardIconsDefault.png" trans="000000" width="1344" height="832"/>
+ </tileset>
+ <tileset firstgid="1584" name="Slime2_Idle_with_shadow" tilewidth="64" tileheight="64" tilecount="24" columns="6">
+  <image source="../Sprites/Creatures/Slime2/Slime2_Idle_with_shadow.png" trans="000000" width="384" height="256"/>
+  <tile id="0">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="22" y="18.7826" width="23" height="21.3043"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer id="1" name="Ground" width="30" height="26">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,3,3,3,3,3,0,0,
+0,0,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,3,0,0,
+0,0,8,8,8,3,3,0,0,0,0,0,0,0,0,0,0,3,0,2,3,3,3,2,0,0,0,3,0,0,
+0,0,8,7,8,0,3,8,0,0,3,0,0,0,7,0,0,3,0,3,3,3,3,3,0,0,0,3,0,0,
+0,0,0,3,0,0,3,3,0,0,3,0,0,0,0,0,0,3,3,3,3,3,3,3,0,0,0,3,0,0,
+0,0,3,3,0,0,0,3,3,3,3,3,3,3,3,3,3,3,0,3,3,3,3,3,0,0,0,3,0,0,
+0,0,3,0,0,3,3,3,0,0,0,0,0,0,0,0,0,3,0,3,3,3,3,3,0,0,0,3,0,0,
+0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0,0,3,8,2,3,3,3,2,0,0,0,3,0,0,
+0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,3,0,0,
+0,0,3,0,7,3,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,3,0,0,
+0,0,3,0,7,3,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,7,0,0,0,0,0,3,0,0,
+0,0,3,3,3,3,0,0,0,0,0,5,0,0,0,0,0,3,3,3,3,3,3,3,3,3,3,3,0,0,
+0,0,0,7,3,3,3,3,3,3,3,3,0,0,8,0,0,3,0,8,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="Objects">
+  <object id="1" gid="948" x="304" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="2" gid="949" x="352" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="3" gid="949" x="320" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="4" gid="949" x="336" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="5" gid="950" x="368" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="6" gid="999" x="368" y="80" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="7" gid="999" x="368" y="112" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="8" gid="999" x="368" y="96" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="9" gid="999" x="368" y="128" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="10" gid="1048" x="368" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="11" gid="1047" x="352" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="12" gid="1047" x="336" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="13" gid="1047" x="320" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="14" gid="1046" x="304" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="15" gid="997" x="304" y="128" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="16" gid="997" x="304" y="112" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="17" gid="997" x="304" y="80" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="18" gid="55" x="384" y="160" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="19" gid="102" x="352" y="176" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="20" gid="103" x="368" y="240" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="21" gid="102" x="256" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="22" gid="53" x="64" y="128" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="23" gid="52" x="96" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="24" gid="103" x="176" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="25" gid="102" x="256" y="48" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="26" gid="102" x="64" y="32" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="27" gid="54" x="112" y="48" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="tree"/>
+   </properties>
+  </object>
+  <object id="28" gid="987" x="160" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectId" value="6575ab12-829c-4716-9e8e-096094f675f8"/>
+    <property name="ObjectType" value="Door"/>
+   </properties>
+  </object>
+  <object id="29" gid="840" x="176" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectId" value="f760308c-9c73-46b2-bfdb-88158810abf9"/>
+    <property name="ObjectType" value="door"/>
+   </properties>
+  </object>
+  <object id="30" gid="844" x="208" y="176" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="31" gid="844" x="192" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="32" gid="844" x="208" y="160" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="33" gid="844" x="192" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="34" gid="844" x="176" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="35" gid="844" x="160" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="36" gid="844" x="144" y="160" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="37" gid="844" x="144" y="176" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="38" gid="894" x="144" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="39" gid="894" x="208" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="40" gid="894" x="208" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="41" gid="894" x="144" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="42" gid="844" x="160" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="wall"/>
+   </properties>
+  </object>
+  <object id="43" gid="691" x="192" y="224" width="16" height="16">
+   <properties>
+    <property name="ObjectId" value="a46617e2-bbb4-4b77-a9dd-6f6645d58e28"/>
+    <property name="ObjectType" value="object"/>
+   </properties>
+  </object>
+  <object id="49" gid="654" x="0" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="50" gid="655" x="16" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="51" gid="655" x="32" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="52" gid="655" x="48" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="53" gid="655" x="64" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="54" gid="655" x="80" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="55" gid="655" x="96" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="56" gid="655" x="112" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="57" gid="655" x="144" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="58" gid="655" x="128" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="59" gid="655" x="160" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="60" gid="655" x="176" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="61" gid="655" x="192" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="62" gid="655" x="208" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="63" gid="655" x="224" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="64" gid="655" x="240" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="65" gid="655" x="272" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="66" gid="655" x="256" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="67" gid="655" x="288" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="68" gid="655" x="320" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="69" gid="655" x="304" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="70" gid="655" x="336" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="71" gid="655" x="352" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="72" gid="655" x="368" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="73" gid="655" x="384" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="74" gid="655" x="400" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="75" gid="655" x="416" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="76" gid="655" x="432" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="77" gid="656" x="464" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="78" gid="655" x="448" y="16" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="81" gid="754" x="464" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="82" gid="705" x="464" y="32" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="83" gid="705" x="464" y="48" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="84" gid="705" x="464" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="85" gid="705" x="464" y="80" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="86" gid="705" x="464" y="96" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="87" gid="705" x="464" y="112" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="88" gid="705" x="464" y="128" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="89" gid="705" x="464" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="90" gid="705" x="464" y="160" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="91" gid="705" x="464" y="176" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="92" gid="705" x="464" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="93" gid="705" x="464" y="208" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="94" gid="705" x="464" y="224" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="95" gid="705" x="464" y="240" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="96" gid="705" x="464" y="256" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="97" gid="753" x="448" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="98" gid="753" x="432" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="99" gid="753" x="400" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="100" gid="753" x="416" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="101" gid="753" x="384" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="102" gid="753" x="368" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="103" gid="753" x="336" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="104" gid="753" x="352" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="105" gid="753" x="320" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="106" gid="753" x="304" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="107" gid="753" x="288" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="108" gid="753" x="256" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="109" gid="753" x="272" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="110" gid="753" x="240" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="111" gid="753" x="224" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="112" gid="753" x="208" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="116" gid="753" x="192" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="117" gid="753" x="176" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="118" gid="753" x="160" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="119" gid="753" x="144" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="120" gid="753" x="128" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="121" gid="753" x="112" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="122" gid="753" x="96" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="123" gid="753" x="64" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="124" gid="753" x="80" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="125" gid="753" x="48" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="126" gid="753" x="32" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="127" gid="753" x="16" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="128" gid="752" x="0" y="272" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="129" gid="703" x="0" y="256" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="130" gid="703" x="0" y="240" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="131" gid="703" x="0" y="224" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="132" gid="703" x="0" y="208" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="133" gid="703" x="0" y="192" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="134" gid="703" x="0" y="176" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="135" gid="703" x="0" y="160" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="136" gid="703" x="0" y="144" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="137" gid="703" x="0" y="128" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="138" gid="703" x="0" y="112" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="139" gid="703" x="0" y="96" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="140" gid="703" x="0" y="80" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="141" gid="703" x="0" y="64" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="142" gid="703" x="0" y="48" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="143" gid="703" x="0" y="32" width="16" height="16">
+   <properties>
+    <property name="ObjectType" value="Border"/>
+   </properties>
+  </object>
+  <object id="146" gid="305" x="364.667" y="68.3333" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff2073aa"/>
+    <property name="IsLocked" type="bool" value="true"/>
+    <property name="ObjectId" value="49f095f4-5902-4839-b27b-d79a178a2b38"/>
+   </properties>
+  </object>
+  <object id="151" gid="751" x="213" y="28.3333" width="16" height="16"/>
+  <object id="152" gid="43" x="245.333" y="69" width="16" height="16"/>
+  <object id="153" gid="43" x="250.667" y="149.667" width="16" height="16"/>
+  <object id="154" gid="43" x="207.333" y="215.667" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="4" name="NPC">
+  <object id="48" gid="1079" x="160" y="208" width="16" height="24">
+   <properties>
+    <property name="ObjectId" value="4cfaad15-8922-45bc-b595-8297950e09f7"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Pathing"/>
+ <objectgroup id="8" name="Creatures">
+  <object id="157" gid="1584" x="332.333" y="100" width="48" height="48">
+   <properties>
+    <property name="AnimationsFile" value="slime2.json"/>
+    <property name="ObjectId" value="d507587c-75c6-4dd4-9c38-e4b4eb71b172"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

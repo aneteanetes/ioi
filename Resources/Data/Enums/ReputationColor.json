@@ -1,0 +1,10 @@
+{
+  "Hated": "#9c0000",
+  "Hostile": "#e30000",
+  "Unfriendly": "#e39b00",
+  "Neutral": "#ffffff",
+  "Friendly": "#39bd00",
+  "Honored": "#63d631",
+  "Revered": "#0020f0",
+  "Exalted": "#7c08a3"
+}

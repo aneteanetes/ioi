@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://6imrd1lqw6lx"]
+
+[ext_resource type="Script" uid="uid://dk6oe224benph" path="res://Scenes/Game/MainGame.cs" id="1_k74qk"]
+[ext_resource type="Script" uid="uid://c3ln4w80ws47p" path="res://Scenes/Game/GameViewportContainer.cs" id="2_88ity"]
+
+[node name="MainGame" type="Node2D" unique_id=979223031]
+script = ExtResource("1_k74qk")
+
+[node name="GameLayout" type="HBoxContainer" parent="." unique_id=99868553]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameViewportContainer" type="SubViewportContainer" parent="GameLayout" unique_id=43998457]
+layout_mode = 2
+script = ExtResource("2_88ity")
+
+[node name="GameViewport" type="SubViewport" parent="GameLayout/GameViewportContainer" unique_id=2053474139]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1420, 1080)
+render_target_update_mode = 4
+
+[node name="SceneSlot" type="Node2D" parent="GameLayout/GameViewportContainer/GameViewport" unique_id=745136680]
+
+[node name="SidebarUI" type="PanelContainer" parent="GameLayout" unique_id=408398370]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2

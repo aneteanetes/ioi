@@ -1,0 +1,152 @@
+{
+  "level": "Уровень",
+  "exp": "Опыт",
+  "health": "Жизнь",
+  "damage": "Урон",
+  "gold": "$",
+  "squad": "Отряд",
+
+  //messages
+  "comingtolocation": "Вы попадаете в",
+  "screenshotsaved": "Скриншот сохранён",
+
+  //maps and areas
+  "MapMraumir": "Мраумир",
+  //
+  "RegionMarket": "Торговый квартал",
+  "AreaOldTemple": "Старый храм",
+  "AreaGuestMarket": "Рынок иноземцев",
+  "AreaMainSquare": "Главная площадь",
+  "AreaUpperCommerce": "Верхние торговые палаты",
+  "AreaLowerCommerce": "Нижние торговые палаты",
+  "AreaSmith": "Кузница",
+  "AreaChapel": "Часовня",
+  //
+  "RegionMageQuarter": "Квартал магии",
+  "LearningTunnel": "Зал учеников",
+  "MagePantryArea": "Кладовая реагентов",
+  "MageResidents": "Резиденция верховного мага",
+  "MageSquare": "Площадь магии",
+  "MageMarket": "Магазин волшебных вещей",
+  "MageDarking": "Тёмные закоулки",
+  "MageUnivercity": "Университет магии",
+
+  //interface
+  "controluse": "Использовать",
+  "controlwasd": "Шаг",
+  "info": "Информация",
+  "controllb": "Перемещение",
+  "skills": "Умения",
+  "abils": "Навыки",
+  "abilities": "Способности",
+  "ability": "Способность",
+  "passiveab": "Пассивную",
+  "charinfo": "Персонаж",
+  "map": "Карта",
+  "inventory": "Инвентарь",
+  "charselectcontrol": "Группа",
+  "pause": "Пауза",
+  "camera": "Камера",
+  "doattack": "Атаковать",
+  "dodefence": "Защищаться",
+  "doflee": "Сбежать",
+  "dowait": "Ждать",
+  "deals": "нанесено",
+  "defeddmg": "заблокировано",
+  "glancingblow": "скользящий удар",
+  "inunconscous": "не в состоянии действовать самостоятельно",
+  "using": "использует",
+  "cantuseabil": "не может использовать способность",
+  "cantuseincombat": "невозможно использовать в бою",
+  "cantuseinworld": "невозможно использовать на карте",
+  "cantuse": "невозможно использовать",
+  "restores": "восстанавливает",
+  "hpes": "здоровья",
+  "objects": "Объекты",
+  "close": "Закрыть",
+  "up": "Вверх",
+  "down": "Вниз",
+  "options": "Опции",
+  "take": "Взять",
+  "speak": "Говорить",
+  "use": "Использовать",
+  "takeall": "Взять всё",
+  "usage": "Взаимодействие",
+  "categories": "Категории",
+  "left": "Влево",
+  "right": "Вправо",
+  "equiped": "Экипировано",
+  "gearscore": "Уровень предметов",
+  "skillpoints": "Очки навыков",
+  "profpoints": "Очки профессии",
+
+  //cut stats
+  "ap_cut": "AP",
+  "ad_cut": "AD",
+
+  //combat
+  "battleoverkeypress": "Бой окончен. Нажмите любую клавишу для продолжения...",
+  "round": "раунд",
+  "getting": "получает",
+  "attacking": "атакует",
+  "notgetting": "не получает",
+  "dmgplural": "урон",
+  "diedcombat": "умирает",
+  "defstand": "принимает защитную стойку",
+  "attackyou": "атакует вас",
+  "tryflee": "пытается сбежать...",
+  "successflee": "удалось сбежать",
+  "youm": "Вам",
+  "exps": "опыта",
+  "effective": "эффективно",
+  "not": "не",
+
+  //exp and lvlups
+  "leveledup": "получает уровень!",
+
+  //races
+  "Human": "Человек",
+
+  //races other
+  "Animal": "Зверь",
+
+  //classes
+  "Warrior": "Воин",
+
+  //classes other
+  "Bruiser": "Громила",
+
+  //stats
+  "ad": "Сила атаки",
+  "ap": "Сила магии",
+  "def": "Защита Ф",
+  "mdef": "Защита М",
+
+  //elements
+  "physical": "Физический",
+  "pure": "Натуральный",
+
+  //resources
+  "rage": "Ярость",
+  "rages": "Ярости",
+
+  //abilities
+
+  //warrior
+  "abil_war_supress": "Усмирение",
+  "abil_war_supress_desc": "Опыт война.\n\nОсобый прием.\n\nЕсли у врага полное здоровье\n-\nнаносит & урона.\nИначе 0.",
+  "abil_war_regen": "Регенерация",
+  "abil_war_regen_desc": "Жажда битвы.\n\nУмение.\n\nВосстанавливает ^ здоровья.",
+  "abil_war_finisher": "Добивание",
+  "abil_war_finisher_desc": "Опыт война.\n\nОсобый прием.\n\nЕсли здоровье врага меньше 25%\n-\nнаносит & урона.\nИначе 0.",
+  "abil_war_ferocity": "Свирепость",
+  "abil_war_ferocity_desc": "Опыт война.\n\nТранс.\n\nУвеличивает прирост ярости от удара на &.",
+
+  //item names
+  "trainingsword": "Тренировочный меч",
+
+  //other
+  "rat_enemy": "Крыса",
+
+  "GameOver": "Конец игры"
+}

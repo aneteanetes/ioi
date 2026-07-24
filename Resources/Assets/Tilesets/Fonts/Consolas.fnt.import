@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://btwl7okowia2"
+path="res://.godot/imported/Consolas.fnt-874ac31799135135e0bbfdd1d25fb65b.fontdata"
+
+[deps]
+
+source_file="res://Resources/Assets/Tilesets/Fonts/Consolas.fnt"
+dest_files=["res://.godot/imported/Consolas.fnt-874ac31799135135e0bbfdd1d25fb65b.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dra33hsthlyhv"
+path="res://.godot/imported/Consolas1.fnt-09d1f3c651a8d3c6730ec4b6358d3d38.fontdata"
+
+[deps]
+
+source_file="res://Resources/Assets/Tilesets/Fonts/test/Consolas1.fnt"
+dest_files=["res://.godot/imported/Consolas1.fnt-09d1f3c651a8d3c6730ec4b6358d3d38.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

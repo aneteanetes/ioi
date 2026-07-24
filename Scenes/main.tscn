@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dpa1lp54r0aru"]
+
+[ext_resource type="Texture2D" uid="uid://boj7c4s87n0l0" path="res://Resources/Assets/Images/Backgrounds/logo.png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dvw1qwxa2qr17" path="res://Scenes/Interface/main_menu.tscn" id="3_8gbba"]
+
+[node name="Main" type="Control" unique_id=1982419765]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1120841070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bo1nx")
+expand_mode = 1
+
+[node name="MainMenu" parent="." unique_id=411548025 instance=ExtResource("3_8gbba")]
+layout_mode = 1

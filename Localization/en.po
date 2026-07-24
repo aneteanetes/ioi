@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "UI_NEW_GAME"
+msgstr "New Game"
+
+msgid "UI_EXIT"
+msgstr "Exit"
+
+# Пример Plural для английского (всего 2 формы)
+msgid "UI_MONSTERS"
+msgid_plural "UI_MONSTERS_PLURAL"
+msgstr[0] "There is {count} monster"
+msgstr[1] "There are {count} monsters"

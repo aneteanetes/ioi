@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dvw1qwxa2qr17"]
+
+[ext_resource type="Script" uid="uid://bvykwqc51k0t5" path="res://Scenes/Interface/MainMenu.cs" id="1_lpc36"]
+[ext_resource type="FontFile" uid="uid://dga8cavmqf8lv" path="res://Resources/Assets/Fonts/Retron2000.ttf" id="2_ihmx1"]
+[ext_resource type="Texture2D" uid="uid://n0o8o4ku8c01" path="res://Resources/Assets/Images/Borders/commonborder.png" id="3_qr3g5"]
+[ext_resource type="Texture2D" uid="uid://cqahrcvj5ssbg" path="res://Resources/Assets/Images/Borders/commonborderpressed.png" id="4_4ijj7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hjt2"]
+texture = ExtResource("3_qr3g5")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anu4k"]
+texture = ExtResource("4_4ijj7")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmsxd"]
+texture = ExtResource("4_4ijj7")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="MainMenu" type="Control" unique_id=411548025]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpc36")
+
+[node name="CenteredButtons" type="CenterContainer" parent="." unique_id=1706143314]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.5
+offset_top = -280.0
+offset_right = 98.5
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_position = Vector2(0, -50)
+
+[node name="MenuButtons" type="VBoxContainer" parent="CenteredButtons" unique_id=1527838583]
+layout_mode = 2
+offset_transform_position = Vector2(0, -50)
+theme_override_constants/separation = 25
+
+[node name="NewGameButton" type="Button" parent="CenteredButtons/MenuButtons" unique_id=1749580515]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.41960785, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.91764706, 0.7294118, 0.60784316, 1)
+theme_override_fonts/font = ExtResource("2_ihmx1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_4hjt2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anu4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rmsxd")
+text = "UI_NEW_GAME"
+
+[node name="LoadGameButton" type="Button" parent="CenteredButtons/MenuButtons" unique_id=288538108]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.41960785, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.91764706, 0.7294118, 0.60784316, 1)
+theme_override_fonts/font = ExtResource("2_ihmx1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_4hjt2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anu4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rmsxd")
+text = "UI_LOAD_GAME"
+
+[node name="BackButton" type="Button" parent="CenteredButtons/MenuButtons" unique_id=1435360004]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.41960785, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.91764706, 0.7294118, 0.60784316, 1)
+theme_override_fonts/font = ExtResource("2_ihmx1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_4hjt2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anu4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rmsxd")
+text = "UI_BACK"
+
+[node name="ExitButton" type="Button" parent="CenteredButtons/MenuButtons" unique_id=947187404]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.41960785, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.91764706, 0.7294118, 0.60784316, 1)
+theme_override_fonts/font = ExtResource("2_ihmx1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_4hjt2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anu4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rmsxd")
+text = "UI_EXIT"

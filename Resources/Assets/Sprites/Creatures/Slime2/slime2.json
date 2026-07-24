@@ -1,0 +1,38 @@
+{
+  "Tileset": "Slime2_Idle_with_shadow.png",
+  "TileWidth": 64,
+  "TileHeight": 64,
+  "Animations":
+  [
+    {
+      "Name": "Idle",
+      "IsLoop": true,
+      "Frames": [
+        {
+          "RegionIndex": 0,
+          "DurationInSeconds": "0.2"
+        },
+        {
+          "RegionIndex": 1,
+          "DurationInSeconds": "0.2"
+        },
+        {
+          "RegionIndex": 2,
+          "DurationInSeconds": "0.2"
+        },
+        {
+          "RegionIndex": 3,
+          "DurationInSeconds": "0.2"
+        },
+        {
+          "RegionIndex": 4,
+          "DurationInSeconds": "0.2"
+        },
+        {
+          "RegionIndex": 5,
+          "DurationInSeconds": "0.2"
+        }
+      ]
+    }
+  ]
+}

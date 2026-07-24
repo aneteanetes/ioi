@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Godot Run",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program":"/home/aneteanetes/Документы/Godot_v4.7.1-stable_mono_linux_x86_64//Godot_Debug_Target",
+            "cwd":"${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "args": ["--path","${workspaceRoot}"]
+        }
+    ]
+}

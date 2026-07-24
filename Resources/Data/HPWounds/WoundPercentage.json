@@ -1,0 +1,9 @@
+{
+  "Uninjured": 90,
+  "SlightlyWounded": 89,
+  "Wounded": 74,
+  "BadlyWounded": 49,
+  "GravelyWounded": 29,
+  "NearDeath": 9,
+  "Dead": 0
+}

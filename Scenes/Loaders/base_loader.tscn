@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ctped5ni2iy8k"]
+
+[ext_resource type="Script" uid="uid://w5xic8uws2oq" path="res://Scenes/Loaders/BaseLoader.cs" id="1_8qmxm"]
+[ext_resource type="Texture2D" uid="uid://bxg453bsymmxo" path="res://Resources/Assets/Images/Backgrounds/star.png" id="2_01plx"]
+[ext_resource type="FontFile" uid="uid://dcubms2a2xqno" path="res://Resources/Assets/Fonts/Fritz.ttf" id="3_dh6mt"]
+
+[node name="CanvasBaseLoader" type="CanvasLayer" unique_id=1644497887]
+script = ExtResource("1_8qmxm")
+
+[node name="BaseLoader" type="ColorRect" parent="." unique_id=855951750]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LoadingContainer" type="Control" parent="BaseLoader" unique_id=839594560]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -140.0
+offset_right = 140.0
+offset_bottom = -100.0
+grow_vertical = 0
+
+[node name="Icon" type="TextureRect" parent="BaseLoader/LoadingContainer" unique_id=2062143025]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -168.5
+offset_right = 168.5
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_01plx")
+
+[node name="LoadText" type="Label" parent="BaseLoader/LoadingContainer" unique_id=1247348948]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 19.0
+offset_right = 323.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("3_dh6mt")
+theme_override_font_sizes/font_size = 50
+text = "LOADING"

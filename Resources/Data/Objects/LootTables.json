@@ -1,0 +1,30 @@
+[
+  {
+    "TableId": "31957acc-85fa-45f4-ad08-d7843e08e856",
+    "Rows": [
+      {
+        "ItemId": "7240261e-268a-45fc-9c0d-d723e38468f1",
+        "Type": "Percent",
+        "Value": 25
+      },
+      {
+        "ItemId": "7240261e-268a-45fc-9c0d-d723e38468f1",
+        "Type": "Percent",
+        "Value": 20
+      },
+      {
+        "ItemId": "7240261e-268a-45fc-9c0d-d723e38468f1",
+        "Type": "Guaranteed"
+      }
+    ]
+  },
+  {
+    "TableId": "1a09ff8f-cc85-4fab-922d-bada8418a33b",
+    "Rows": [
+      {
+        "ItemId": "869a3db9-e300-48d1-822f-856311d4aeb8",
+        "Type": "Guaranteed"
+      }
+    ]
+  }
+]

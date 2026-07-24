@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Landscape",
+    "Icon": "Assets/Images/Icons/Abilities/landscape.png",
+    "ItemId": "869a3db9-e300-48d1-822f-856311d4aeb8",
+    "IsCombat": "false",
+    "Slot": "First",
+    "Archetype": "Warrior",
+    "IsUsableInWorld": true
+  },
+  {
+    "Name": "Reveal",
+    "Icon": "Assets/Images/Icons/Abilities/reveal.png",
+    "ItemId": "8a8b7bfe-fccd-4039-ada2-ac253a089d30",
+    "IsCombat": "false",
+    "Slot": "First",
+    "Archetype": "Rogue",
+    "IsUsableInWorld": true
+  },
+  {
+    "Name": "Prayer",
+    "Icon": "Assets/Images/Icons/Abilities/prayer.png",
+    "ItemId": null,
+    "IsCombat": "false",
+    "Slot": "First",
+    "Archetype": "Priest",
+    "IsUsableInWorld": true
+  },
+  {
+    "Name": "Teleportation",
+    "Icon": "Assets/Images/Icons/Abilities/teleportation.png",
+    "ItemId": null,
+    "IsCombat": "false",
+    "Slot": "First",
+    "Archetype": "Wizard",
+    "IsUsableInWorld": true
+  }
+]
