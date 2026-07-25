@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Geranium.Reflection;
 using Godot;
@@ -6,8 +7,10 @@ namespace Ioi.Widgets.Menu;
 
 public partial class MainMenu : Control
 {
-	// [Export] позволяет переключать этот флаг прямо из редактора Godot для тестов
-	[Export] public bool IsInGame { get; set; } = false;
+	[Export]
+	public bool IsInGame { get; set; } = false;
+	
+	public Action Back;
 	
 	// Ссылки на кнопки в сцене (в Godot 4 NodePath генерируется автоматически или ищется через %)
 	private Button _newGameButton;
@@ -70,11 +73,10 @@ public partial class MainMenu : Control
 		GD.Print(result);
 		// Выведет строго: "Есть 5 монстров"
 	}
-
+	
 	private void OnBackPressed()
 	{
-		// Если это пауза внутри игры — просто закрываем сцену меню
-		QueueFree(); // Удаляет этот узел из памяти (Аналог Dispose/RemoveDesktopWidgets)
+		Back?.Invoke();
 	}
 	
 	private void OnExitPressed()

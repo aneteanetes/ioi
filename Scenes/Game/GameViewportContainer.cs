@@ -14,7 +14,7 @@ public partial class GameViewportContainer : SubViewportContainer
 	public override void _Ready()
 	{
 		_subViewport = GetNode<SubViewport>("GameViewport");
-
+		
 		MouseEntered += () => _isHovered = true;
 		MouseExited += () => _isHovered = false;
 	}
@@ -22,7 +22,7 @@ public partial class GameViewportContainer : SubViewportContainer
 	public override void _Input(InputEvent @event)
 	{
 		Camera2D currentCamera = _subViewport.GetCamera2D();
-
+		
 		if(@event is InputEventMouseButton mouseButton)
 			ProcessMouse(mouseButton, currentCamera);
 				
@@ -55,7 +55,7 @@ public partial class GameViewportContainer : SubViewportContainer
 		if(_isHovered)
 			ProcessCamera(@mouseButton,currentCamera);
 	}
-
+	
 	private void ProcessCamera(InputEventMouseButton mouseButton, Camera2D currentCamera)
 	{
 		if (currentCamera is not IGameCamera gameCamera) 
