@@ -4,14 +4,26 @@ using ioi;
 public partial class Global : Node
 {
 	public static GameStrings Strings {get;private set;}
+
+	public static GameWorld GameWorld { get; set; }
+
+	public static GameLog GameLog { get; set; }
 	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public static float TimeSpeed = 0.05f;
+	
+	public static bool ResetCameraMove { get; set; } = false;
+
+    public static bool IsDebug { get; internal set; } = true;
+
+    public static string PathToProject { get; internal set; }
+    
+    public override void _Ready()
 	{
 		Strings = new GameStrings();
+		GameLog=new GameLog();
+		GameWorld = new GameWorld();
 	}
 	
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}

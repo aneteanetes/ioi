@@ -23,6 +23,7 @@ public partial class MainGame : Node2D
 	private readonly Stack<Control> _windowStack = new();
 	
 	private string _mapName;
+
 	public void Init(string mapName)
 	{
 		_mapName=mapName;
@@ -47,7 +48,7 @@ public partial class MainGame : Node2D
 		
 		_uiLayer.As<MainGameUI>().MainGame = this;
 		
-		_sceneSlot = GetNode<Node2D>(_sceneSlotPath);		
+		_sceneSlot = GetNode<Node2D>(_sceneSlotPath);
 		SwitchZone(_mapName);
 	}
 	
@@ -104,20 +105,17 @@ public partial class MainGame : Node2D
 	
 	public void SwitchZone(string scenePath)
 	{
-		// 1. Безопасно удаляем старую сцену (карту или бой)
 		if (_currentZone != null)
 		{
 			_currentZone.QueueFree();
 			_currentZone = null;
 		}
 		
-		// 2. Загружаем новую сцену (.tscn префаб) с диска
 		var packedScene = GD.Load<PackedScene>(scenePath);
 		if (packedScene != null)
 		{
 			_currentZone = packedScene.Instantiate();
 			
-			// 3. Засовываем её внутрь нашего изолированного Viewport
 			_sceneSlot.AddChild(_currentZone);
 		}
 		else

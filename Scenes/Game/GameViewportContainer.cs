@@ -37,7 +37,7 @@ public partial class GameViewportContainer : SubViewportContainer
 		
 		if (mouseButton.ButtonIndex == MouseButton.Left && mouseButton.Pressed && _isHovered)
 			{
-				if (_isDragging) 
+				if (_isDragging)
 					return;
 				
 				var slot = GetNode<Node2D>("GameViewport/SceneSlot");
@@ -77,6 +77,7 @@ public partial class GameViewportContainer : SubViewportContainer
 			
 			if (mouseButton.ButtonIndex == MouseButton.Right && gameCamera.CanDrag)
 			{
+				Global.ResetCameraMove=true;
 				_isDragging = !_isDragging;
 			}
 		}

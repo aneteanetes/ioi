@@ -5,6 +5,8 @@
 [ext_resource type="Shader" uid="uid://bm4xqbfxatdon" path="res://Resources/Assets/Shaders/bevel.gdshader" id="3_7sxqa"]
 [ext_resource type="Script" uid="uid://d1d1doytfwpij" path="res://Scenes/Game/Map/Base/PlayerCamera.cs" id="3_eywhk"]
 [ext_resource type="Script" uid="uid://chfweai5rjgxd" path="res://Scenes/Game/Map/Base/Player.cs" id="3_fvvxy"]
+[ext_resource type="Shader" uid="uid://bkij0mspth5ab" path="res://Resources/Assets/Shaders/fog_of_war.gdshader" id="4_r6dk1"]
+[ext_resource type="Texture2D" uid="uid://b4ddkbb2w6pr7" path="res://Resources/Assets/Images/Light/128x128 textures (44).png" id="6_bedet"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88ity"]
 shader = ExtResource("3_7sxqa")
@@ -14,9 +16,17 @@ shader = ExtResource("3_7sxqa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ceyt"]
 
-[node name="BaseMap" type="Node2D" unique_id=634903191]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bedet"]
+shader = ExtResource("4_r6dk1")
+
+[node name="BaseMap" type="Node2D" unique_id=634903191 node_paths=PackedStringArray("TileMap", "Player", "EnemiesContainer", "FogColorRect", "DayNightLight")]
 y_sort_enabled = true
 script = ExtResource("1_mbmb4")
+TileMap = NodePath("WallLayer")
+Player = NodePath("Player")
+EnemiesContainer = NodePath("ObjectsLayer")
+FogColorRect = NodePath("FogColorRect")
+DayNightLight = NodePath("CanvasModulate")
 
 [node name="GroundLayer" type="TileMapLayer" parent="." unique_id=1162312714]
 tile_set = ExtResource("2_0ceyt")
@@ -29,6 +39,8 @@ tile_set = ExtResource("2_0ceyt")
 
 [node name="ObjectsLayer" type="Node2D" parent="." unique_id=359247023]
 y_sort_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=191999045]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1649852459]
 y_sort_enabled = true
@@ -46,3 +58,11 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_eywhk")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=199275433]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_bedet")
+
+[node name="FogColorRect" type="ColorRect" parent="." unique_id=1676255127]
+z_index = 20
+material = SubResource("ShaderMaterial_bedet")
