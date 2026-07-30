@@ -8,6 +8,11 @@ public class GameStrings
 {
     public const string Empty=nameof(Empty);
     public const string NotFound=nameof(NotFound);
+
+    public string this[string key]
+    {
+        get => Get(key);
+    }
     
     public string Get(string key, params (string Key, object Value)[] data)
     {

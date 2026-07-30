@@ -1,0 +1,291 @@
+[gd_scene format=3 uid="uid://xthajs4eg3v6"]
+
+[ext_resource type="Texture2D" uid="uid://n0o8o4ku8c01" path="res://Resources/Assets/Images/Borders/commonborder.png" id="1_pce2o"]
+[ext_resource type="Script" uid="uid://dh0psctc80tbi" path="res://Scenes/Interface/InGameCommon/MinimapUI.cs" id="1_umlb1"]
+[ext_resource type="Script" uid="uid://dubl5hwnr2m0u" path="res://Scenes/Interface/InGameCommon/LabelClock.cs" id="3_nnl71"]
+[ext_resource type="FontFile" uid="uid://bmnrbrkm5dm15" path="res://Resources/Assets/Fonts/Consolas-Regular.ttf" id="3_oux5c"]
+[ext_resource type="Script" uid="uid://cno3ky44mj7ul" path="res://Scenes/Interface/InGameCommon/GameLog.cs" id="4_awctq"]
+[ext_resource type="FontFile" uid="uid://dga8cavmqf8lv" path="res://Resources/Assets/Fonts/Retron2000.ttf" id="4_swslq"]
+[ext_resource type="Script" uid="uid://b8n2vrk2jgwv" path="res://Scenes/Interface/InGameCommon/StatsContainer.cs" id="7_800d8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hjt2"]
+texture = ExtResource("1_pce2o")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hjt2"]
+
+[node name="GameUI" type="Control" unique_id=1705178895]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1030767311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainerTop" type="HBoxContainer" parent="VBoxContainer" unique_id=480393915]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainerTop" unique_id=1345994435]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainerTop" unique_id=1629282110]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MinimapContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainerTop/VBoxContainer" unique_id=1262977583]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hjt2")
+
+[node name="MinimapUI" type="TextureRect" parent="VBoxContainer/HBoxContainerTop/VBoxContainer/MinimapContainer" unique_id=1087582454]
+custom_minimum_size = Vector2(280, 280)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_umlb1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainerTop/VBoxContainer" unique_id=721860382]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainerTop/VBoxContainer/HBoxContainer" unique_id=1442514097]
+custom_minimum_size = Vector2(216, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelClock" type="Label" parent="VBoxContainer/HBoxContainerTop/VBoxContainer/HBoxContainer/CenterContainer" unique_id=246645819]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_oux5c")
+script = ExtResource("3_nnl71")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainerTop/VBoxContainer" unique_id=1524133887]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4hjt2")
+
+[node name="RichTextQuests" type="RichTextLabel" parent="VBoxContainer/HBoxContainerTop/VBoxContainer/PanelContainer" unique_id=771843313]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="HBoxContainerBot" type="HBoxContainer" parent="VBoxContainer" unique_id=235129284]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 106
+
+[node name="LogContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainerBot" unique_id=1721957183]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hjt2")
+
+[node name="RichTextLabelLog" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/LogContainer" unique_id=849430307]
+custom_minimum_size = Vector2(625, 200)
+layout_mode = 2
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+meta_underlined = false
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+script = ExtResource("4_awctq")
+
+[node name="GroupContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainerBot" unique_id=1935514083]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hjt2")
+
+[node name="GroupUI" type="GridContainer" parent="VBoxContainer/HBoxContainerBot/GroupContainer" unique_id=27939808]
+custom_minimum_size = Vector2(625, 134)
+layout_mode = 2
+
+[node name="StatsContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainerBot" unique_id=51222365 node_paths=PackedStringArray("EntityName", "Level", "Exp", "RaceClass", "Resource", "Damage", "AD", "ARM", "AP", "BAR", "Health", "HealthText")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hjt2")
+script = ExtResource("7_800d8")
+EntityName = NodePath("VBoxContainer/LvlNameContainer/NameLabel")
+Level = NodePath("VBoxContainer/LvlNameContainer/LevelLabel")
+Exp = NodePath("VBoxContainer/ExpRaceClassContainer/ExpLabel")
+RaceClass = NodePath("VBoxContainer/ExpRaceClassContainer/RaceClassLabel")
+Resource = NodePath("VBoxContainer/ResourceLabel")
+Damage = NodePath("VBoxContainer/DamageLabel")
+AD = NodePath("VBoxContainer/PhysicalContainer/AD")
+ARM = NodePath("VBoxContainer/PhysicalContainer/ARM")
+AP = NodePath("VBoxContainer/MagicContainer/AP")
+BAR = NodePath("VBoxContainer/MagicContainer/BAR")
+Health = NodePath("VBoxContainer/MarginContainer/HealthBar")
+HealthText = NodePath("VBoxContainer/MarginContainer/HealthBar/HealthText")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainerBot/StatsContainer" unique_id=322152693]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+
+[node name="LvlNameContainer" type="GridContainer" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=1385742732]
+layout_mode = 2
+columns = 2
+
+[node name="LevelLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/LvlNameContainer" unique_id=2105560336]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#767676]Ур: 1[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="NameLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/LvlNameContainer" unique_id=359194964]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=cyan]Возвращённый[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="ExpRaceClassContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=446397202]
+layout_mode = 2
+alignment = 1
+
+[node name="ExpLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/ExpRaceClassContainer" unique_id=58649901]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#767676]Оп: 0/11[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RaceClassLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/ExpRaceClassContainer" unique_id=563201513]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#cccccc]Дроу - Воин[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=61752179]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/MarginContainer" unique_id=373620909]
+modulate = Color(0.90588236, 0.28235295, 0.3372549, 1)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxTexture_4hjt2")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="HealthText" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/MarginContainer/HealthBar" unique_id=1770504496]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ResourceLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=1466772556]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#c5101c]Ярость: 30[/color]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=1197382094]
+modulate = Color(0.54509807, 0.41960785, 0.3372549, 1)
+layout_mode = 2
+
+[node name="DamageLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=1510097830]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#c19c00]Урон: 7-11[/color] [color=#c19c00](Физический)[/color]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=586760828]
+modulate = Color(0.54509807, 0.41960785, 0.3372549, 1)
+layout_mode = 2
+
+[node name="PhysicalContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=20266324]
+layout_mode = 2
+alignment = 1
+
+[node name="AD" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/PhysicalContainer" unique_id=1691910004]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#c5101c]Сила атаки: 0[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ARM" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/PhysicalContainer" unique_id=1925296131]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#13a10e]Физ. Защита: 0[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="MagicContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=887256394]
+layout_mode = 2
+alignment = 1
+
+[node name="AP" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/MagicContainer" unique_id=586293952]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#2c96dd]Сила магии: 0[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BAR" type="RichTextLabel" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer/MagicContainer" unique_id=244830597]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_swslq")
+bbcode_enabled = true
+text = "[color=#881798]Маг. Защита: 0[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HBoxContainerBot/StatsContainer/VBoxContainer" unique_id=36869728]
+modulate = Color(0.54509807, 0.41960785, 0.3372549, 1)
+layout_mode = 2

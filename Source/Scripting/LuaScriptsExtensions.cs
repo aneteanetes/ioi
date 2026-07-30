@@ -13,19 +13,19 @@ namespace ioi.Scripting
             // 1. Сначала ищем в самом объекте (локальный override)
             var baseObjVal = ResolvePath(table, key);
             if (!baseObjVal.IsNil()) return baseObjVal;
-
+            
             // 2. Получаем список путей к шаблонам из _components
             var sources = table.Get("_components").Table;
             if (sources == null) return DynValue.Nil;
-
+            
             foreach (var sourcePath in sources.Values.Reverse())
             {
                 if (sourcePath.Type != DataType.String) continue;
-
+                
                 // 3. Резолвим путь (например, "Templates.Classes.Warrior")
                 var currentTable = ResolvePath(table.OwnerScript.Globals, sourcePath.String);
                 if (currentTable == null || currentTable.Type != DataType.Table) continue;
-
+                
                 // if key splitted
                 var resolvedValue = ResolvePath(currentTable.Table, key);
                 if (resolvedValue.IsNotNil())
@@ -36,7 +36,7 @@ namespace ioi.Scripting
 
             return DynValue.Nil;
         }
-
+        
         public static DynValue ResolvePath(this Table current, string path)
         {
             DynValue value = DynValue.Nil;

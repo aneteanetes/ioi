@@ -21,11 +21,47 @@ msgstr "Загрузить"
 msgid "UI_BACK"
 msgstr "Назад"
 
+msgid "TIME"
+msgstr "Время"
+
 msgid "UI_EXIT"
 msgstr "Выход"
 
 msgid "LOADING"
 msgstr "Загрузка"
+
+msgid "LVL_CUT"
+msgstr "Ур"
+
+##races
+msgid "Human"
+msgstr "Человек"
+
+##classes
+msgid "Warrior"
+msgstr "Воин"
+
+msgid "EXP_CUT"
+msgstr "Оп"
+
+#resources
+msgid "rage"
+msgstr "Ярость"
+
+msgid "damage"
+msgstr "Урон"
+
+msgid "ad"
+msgstr "Сила атаки"
+
+msgid "ap"
+msgstr "Сила магии"
+
+msgid "def"
+msgstr "Физ. Защита"
+
+msgid "mdef"
+msgstr "Маг. Защита"
 
 # Пример Plural для русского (3 формы: 1 монстр, 2 монстра, 5 монстров)
 msgid "UI_MONSTERS"

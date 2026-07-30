@@ -20,8 +20,8 @@ public partial class BaseMap : Node2D, IViewportScene
     [Export] public int TileSize = 16;
     
     private int _currentRadius;
-    private int _mapWidth;
-    private int _mapHeight;
+    public int MapWidth {get; private set;}
+    public int MapHeight{get; private set;}
     private Vector2I _mapOrigin;
 	
 	/// <summary>
@@ -30,7 +30,7 @@ public partial class BaseMap : Node2D, IViewportScene
 	/// <para>1 - shadow</para>
 	/// <para>2 - light</para>
 	/// </summary>
-    private byte[,] _fogGrid; 
+    public byte[,] FogGrid { get; private set;}
     
     private Image _fogImage;
     private ImageTexture _fogTexture;
@@ -41,19 +41,23 @@ public partial class BaseMap : Node2D, IViewportScene
     {
         CalculateMap();
         InitShader();
-
+        
         _currentRadius = BaseViewRadius;
+        
+        AfterReady?.Invoke();
     }
+
+    public Action AfterReady;
     
     private void CalculateMap()
     {
         Rect2I mapBounds = TileMap.GetUsedRect();
         _mapOrigin = mapBounds.Position;
-        _mapWidth = mapBounds.Size.X > 0 ? mapBounds.Size.X : 100;
-        _mapHeight = mapBounds.Size.Y > 0 ? mapBounds.Size.Y : 100;
+        MapWidth = mapBounds.Size.X > 0 ? mapBounds.Size.X : 100;
+        MapHeight = mapBounds.Size.Y > 0 ? mapBounds.Size.Y : 100;
 
         Vector2 targetPos = new Vector2(_mapOrigin.X * TileSize, _mapOrigin.Y * TileSize);
-        Vector2 targetSize = new Vector2(_mapWidth * TileSize, _mapHeight * TileSize);
+        Vector2 targetSize = new Vector2(MapWidth * TileSize, MapHeight * TileSize);
 
         Callable.From(() =>
         {
@@ -64,10 +68,10 @@ public partial class BaseMap : Node2D, IViewportScene
     
     private void InitShader()
     {
-        _fogGrid = new byte[_mapWidth, _mapHeight];
+        FogGrid = new byte[MapWidth, MapHeight];
         _fogMaterial = (ShaderMaterial)FogColorRect.Material;
 
-        _fogImage = Image.CreateEmpty(_mapWidth, _mapHeight, false, Image.Format.R8);
+        _fogImage = Image.CreateEmpty(MapWidth, MapHeight, false, Image.Format.R8);
         _fogTexture = ImageTexture.CreateFromImage(_fogImage);
         _fogMaterial.SetShaderParameter("fog_texture", _fogTexture);
     }
@@ -105,17 +109,17 @@ public partial class BaseMap : Node2D, IViewportScene
 	{
 		Vector2I playerTile = TileMap.LocalToMap(TileMap.ToLocal(Player.GlobalPosition)) - _mapOrigin;
 		
-		for (int x = 0; x < _mapWidth; x++) 
+		for (int x = 0; x < MapWidth; x++) 
 		{
-			for (int y = 0; y < _mapHeight; y++) 
+			for (int y = 0; y < MapHeight; y++) 
 			{
-				if (_fogGrid[x, y] == 2) _fogGrid[x, y] = 1;
+				if (FogGrid[x, y] == 2) FogGrid[x, y] = 1;
 			}
 		}
 		
-		if (playerTile.X >= 0 && playerTile.X < _mapWidth && playerTile.Y >= 0 && playerTile.Y < _mapHeight)
+		if (playerTile.X >= 0 && playerTile.X < MapWidth && playerTile.Y >= 0 && playerTile.Y < MapHeight)
 		{
-			_fogGrid[playerTile.X, playerTile.Y] = 2;
+			FogGrid[playerTile.X, playerTile.Y] = 2;
 		}
 		
 		//raycast
@@ -150,9 +154,9 @@ public partial class BaseMap : Node2D, IViewportScene
 
 		while (true)
 		{
-			if (cx >= 0 && cx < _mapWidth && cy >= 0 && cy < _mapHeight)
+			if (cx >= 0 && cx < MapWidth && cy >= 0 && cy < MapHeight)
 			{
-				_fogGrid[cx, cy] = 2;
+				FogGrid[cx, cy] = 2;
 
 				if (IsWall(cx, cy))
 				{
@@ -191,17 +195,17 @@ public partial class BaseMap : Node2D, IViewportScene
 
 	private void UpdateShaderTexture()
     {
-        for (int x = 0; x < _mapWidth; x++) 
+        for (int x = 0; x < MapWidth; x++) 
         {
-            for (int y = 0; y < _mapHeight; y++) 
+            for (int y = 0; y < MapHeight; y++) 
             {
-                float colorValue = _fogGrid[x, y] == 2 ? 1.0f : (_fogGrid[x, y] == 1 ? 0.5f : 0.0f);
+                float colorValue = FogGrid[x, y] == 2 ? 1.0f : (FogGrid[x, y] == 1 ? 0.5f : 0.0f);
                 _fogImage.SetPixel(x, y, new Color(colorValue, 0, 0));
             }
         }
         _fogTexture.Update(_fogImage);
     }
-
+    
     private void ObjectsVisibility()
     {
         if (EnemiesContainer == null) return;
@@ -213,10 +217,10 @@ public partial class BaseMap : Node2D, IViewportScene
                 // Переводим позицию врага в координаты сетки с учетом смещения карты
                 Vector2I enemyTile = TileMap.LocalToMap(TileMap.ToLocal(enemy2D.GlobalPosition)) - _mapOrigin;
                 
-                if (enemyTile.X >= 0 && enemyTile.X < _mapWidth && enemyTile.Y >= 0 && enemyTile.Y < _mapHeight) 
+                if (enemyTile.X >= 0 && enemyTile.X < MapWidth && enemyTile.Y >= 0 && enemyTile.Y < MapHeight) 
                 {
                     // Враг виден, только если тайл под ним имеет статус 2 (свет сейчас)
-                    enemy2D.Visible = (_fogGrid[enemyTile.X, enemyTile.Y] == 2);
+                    enemy2D.Visible = (FogGrid[enemyTile.X, enemyTile.Y] == 2);
                 } 
                 else 
                 {
@@ -228,15 +232,15 @@ public partial class BaseMap : Node2D, IViewportScene
     
     public byte[] GetFogSaveData() 
     {
-        byte[] flatArray = new byte[_mapWidth * _mapHeight];
-        Buffer.BlockCopy(_fogGrid, 0, flatArray, 0, flatArray.Length);
+        byte[] flatArray = new byte[MapWidth * MapHeight];
+        Buffer.BlockCopy(FogGrid, 0, flatArray, 0, flatArray.Length);
         return flatArray;
     }
     
     public void LoadFogSaveData(byte[] loadedData) 
     {
-        if (loadedData == null || loadedData.Length != _mapWidth * _mapHeight) return;
-        Buffer.BlockCopy(loadedData, 0, _fogGrid, 0, loadedData.Length);
+        if (loadedData == null || loadedData.Length != MapWidth * MapHeight) return;
+        Buffer.BlockCopy(loadedData, 0, FogGrid, 0, loadedData.Length);
     }
 	
 	public override void _Input(InputEvent @event)
@@ -253,5 +257,42 @@ public partial class BaseMap : Node2D, IViewportScene
 			GetViewport().SetInputAsHandled();
 		}
 	}
+
+    //minimap part
+
+    public bool IsWallInGrid(int tileX, int tileY)
+    {
+        Vector2I globalTilePos = new Vector2I(tileX, tileY) + _mapOrigin;
+        TileData tileData = TileMap.GetCellTileData(globalTilePos);
+        return tileData != null;
+    }
+
+    public Vector2I GetPlayerTile()
+    {
+        if (Player == null) return new Vector2I(-1, -1);
+        return TileMap.LocalToMap(TileMap.ToLocal(Player.GlobalPosition)) - _mapOrigin;
+    }
+
+    public System.Collections.Generic.List<Vector2I> GetVisibleEnemiesTiles()
+    {
+        var list = new System.Collections.Generic.List<Vector2I>();
+        if (EnemiesContainer == null) return list;
+
+        foreach (Node enemy in EnemiesContainer.GetChildren())
+        {
+            if (enemy is Node2D enemy2D)
+            {
+                Vector2I enemyTile = TileMap.LocalToMap(TileMap.ToLocal(enemy2D.GlobalPosition)) - _mapOrigin;
+                if (enemyTile.X >= 0 && enemyTile.X < MapWidth && enemyTile.Y >= 0 && enemyTile.Y < MapHeight)
+                {
+                    if (FogGrid[enemyTile.X, enemyTile.Y] == 2)
+                    {
+                        list.Add(enemyTile);
+                    }
+                }
+            }
+        }
+        return list;
+    }
 
 }

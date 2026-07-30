@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dk6oe224benph" path="res://Scenes/Game/MainGame.cs" id="1_k74qk"]
 [ext_resource type="Script" uid="uid://c3ln4w80ws47p" path="res://Scenes/Game/GameViewportContainer.cs" id="2_88ity"]
 [ext_resource type="PackedScene" uid="uid://dvw1qwxa2qr17" path="res://Scenes/Interface/main_menu.tscn" id="2_aefse"]
+[ext_resource type="PackedScene" uid="uid://xthajs4eg3v6" path="res://Scenes/Interface/InGameCommon/GameUI.tscn" id="4_q5o1p"]
 [ext_resource type="Script" uid="uid://yf671texqrjt" path="res://Scenes/Game/MainGameUI.cs" id="4_sy0d1"]
 [ext_resource type="Shader" uid="uid://bkrvqeu6k7c4n" path="res://Resources/Assets/Shaders/Postprocess/blur.gdshader" id="5_fuq2u"]
 
@@ -37,14 +38,14 @@ script = ExtResource("2_88ity")
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(1420, 1080)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="SceneSlot" type="Node2D" parent="GameLayout/GameViewportContainer/GameViewport" unique_id=745136680]
 
-[node name="SidebarUI" type="PanelContainer" parent="GameLayout" unique_id=408398370]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
+[node name="GameUILayout" type="CanvasLayer" parent="." unique_id=786115959]
+
+[node name="GameUI" parent="GameUILayout" unique_id=1705178895 instance=ExtResource("4_q5o1p")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1949459717 node_paths=PackedStringArray("Blur")]
 process_mode = 3

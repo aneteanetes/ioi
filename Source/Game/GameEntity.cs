@@ -51,7 +51,7 @@ namespace ioi.Game
             Data["entity"] = this;
             Squad = new GameEntitySquad(this);
         }
-
+        
         /// <summary>
         /// First argument self
         /// </summary>
@@ -120,13 +120,10 @@ namespace ioi.Game
                 return new Color(r, g, b, a);
             }
         }
-
+        
         public static string ColorFromTableToHex(Table table)
-        {
-            #warning color to hex
-            return ColorFromTable(table).ToString();
-        }
-
+            => ColorFromTable(table).ToHexString();
+        
         /// <summary>
         /// 
         /// </summary>
@@ -152,18 +149,17 @@ namespace ioi.Game
             {
                 var entity = abilValue.UserData.Object.As<GameEntity>();
                 var name = entity.GetName();// abtable.Get("name").String;
-                #warning color to hex string
-                var rescolor = this.Color("rescolor").ToString();
+                var rescolor = this.Color("rescolor").ToHexString();
                 var cost = entity["cost"].Number;
 
                 var costtext = $" /c[{rescolor}][{cost}]";
 
                 if (entity["mode"].String == "passive")
                     costtext = string.Empty;
-
+                
                 return $"{name}{costtext}";
             }
-
+            
             return "...";
         }
         
@@ -175,8 +171,7 @@ namespace ioi.Game
             
             var entity = abilityVal.UserData.Object.As<GameEntity>();
             
-            #warning .ToHexString()
-            var abilcolor = $"/c[{entity.Color("color")}]";
+            var abilcolor = $"/c[{entity.Color("color").ToHexString()}]";
             var abname = entity.GetName();
             
             if (entity["mode"].String == "passive")
@@ -186,13 +181,13 @@ namespace ioi.Game
             }
             
             // var enemy = _script.Game.GameState.Enemy;
-
+            
             // var location = entity["location"].String;
             // if (enemy != null && location != "combat")
             // {
             //     _script.Game.World.LogSystem.Log($"{_script.Game.Strings["Roguelike"]["ability"]} '{abilcolor}{abname}/cd' {_script.Game.Strings["Roguelike"]["cantuseincombat"]}!");
             //     return false;
-
+            
             // }
             
             // if (enemy == null && location != "world")

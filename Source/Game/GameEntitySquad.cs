@@ -37,18 +37,18 @@ namespace ioi.Game
             while (i < _members.Count)
             {
                 /// если враги убили всех персонажей, то в дальнейшем избиении смысла нет.
-                //if (Game.World.CombatSystem.IsGameOver)
+                if (Global.IsGameOver)
                     break;
                 
                 /// если бой закончился пока мобы ходят
-                //if (Game.World.CombatSystem.IsEndOfBattle)
+                if (Global.CombatSystem.IsEndOfBattle)
                     break;
-
+                
                 _members[i].Func("combatturn", target);
                 i++;
             }
         }
-
+        
         public bool IsEmpty() => _members.IsEmpty();
 
         public bool IsAnybodyAlive() => _members.Count(m => !m.IsUnconscious) != 0;
