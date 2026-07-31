@@ -10,27 +10,21 @@ public class SpawnSystem
         
     public GameEntity SpawnCharacter(string name, string race, string @class)
     {
-        var entity = new GameEntity(Global.LuaScripts,null,
+        var entity = SpawnEntity(
             "Templates.Base.Object",
             "Templates.Base.Player",
             $"Templates.Races.{race}", 
-            $"Templates.Classes.{@class}")
-        {
-            Name = name,
-        };
+            $"Templates.Classes.{@class}");
 
-        entity["icon"] = DynValue.NewString("@");
-        entity["type"] = DynValue.NewString("player");
-        entity.Color("color", Color.Color8(117, 199, 198));
+        entity.Name = name;
         entity["namevalue"] = DynValue.NewString(entity.Name);
-        entity.Func("refresh");
-
+        
         return entity;
     }
     
     public GameEntity SpawnObject(string id, string type, Table props)
         => SpawnEntity(props, "Templates.Base.Object", $"Templates.{type}.{id}");
-
+    
     public GameEntity SpawnEntity(params string[] prototypes)
         => SpawnEntity(null,prototypes);
     
@@ -41,6 +35,10 @@ public class SpawnSystem
     {
         var entity = new GameEntity(Global.LuaScripts, props, prototypes);
         entity["seed"] = DynValue.NewNumber(Global.ItemRandomSystem.GetSeed());
+        
+        #warning spawn entity autorefresh + applyheal - or not?
+        entity.Func("refresh");
+        entity.Func("applyheal",entity["mhp"]);
         
         return entity;
     }

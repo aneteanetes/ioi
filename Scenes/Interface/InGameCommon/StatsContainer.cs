@@ -16,21 +16,16 @@ public partial class StatsContainer : PanelContainer
     [Export] RichTextLabel BAR {get;set;}
     [Export] ProgressBar Health {get;set;}
     [Export] RichTextLabel HealthText {get;set;}
-	
-    
-    //private Func<GameEntity> fetcher;
+	    
 	GameEntity entity;
     
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
 		Global.StatsContainer = this;
 	}
 	
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// var entity = fetcher?.Invoke();
 		if(entity==null)
 			return;
 		
@@ -53,12 +48,19 @@ public partial class StatsContainer : PanelContainer
 		BAR.Text = DrawText.Create($"{str["mdef"]}: {entity["mdef"]}",Color.FromHtml("#881798"));
 	}
 	
-	public void BindEntity(Func<GameEntity> entityFetcher)
+	public void BindEntity(GameEntity entityFetcher)
 	{
 		// this.fetcher = entityFetcher;
-		entity = entityFetcher?.Invoke();
+		entity = entityFetcher;
 	}
 
+    public override void _ExitTree()
+    {
+		entity=null;
+		Global.StatsContainer=null;
+        base._ExitTree();
+    }
+    
     protected override void Dispose(bool disposing)
     {
 		entity=null;

@@ -66,7 +66,7 @@
 
     abilities = {
     },
-
+    
     getAbility = function (self,idx)
         local prop = "ability"..idx;
 	    if self[prop] == nil then
@@ -240,7 +240,7 @@
 
      -- WIP
     applyheal = function (self,heal,healer,ctx)
-
+        
         -- before
         beforehealed = self.beforeheal(self,heal,healer,ctx);
         
@@ -337,14 +337,13 @@
     beforeexp = function (obj,exp)
 	    return exp;
     end,
-
+    
     destroy=function(self)
 	    -- on destroy
     end,
-
+    
     -- autoinit
     init = function (obj,props)
-
         -- for all nested objects
         obj.perks={}
     end,

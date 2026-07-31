@@ -33,6 +33,10 @@ msgstr "Загрузка"
 msgid "LVL_CUT"
 msgstr "Ур"
 
+##name of main character
+msgid "MAIN_NAME"
+msgstr "Вернувшийся"
+
 ##races
 msgid "Human"
 msgstr "Человек"

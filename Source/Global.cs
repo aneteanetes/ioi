@@ -38,13 +38,13 @@ public partial class Global : Node
     public static bool IsGameOver { get; internal set; }
 
 	public static SpawnSystem SpawnSystem { get; set; }
+    public static Creature Player { get; internal set; }
 
     public override void _Ready()
 	{
 		Random = new RandomNumberGenerator();
 		ItemRandomSystem=new ItemRandomSystem();
 		Strings = new GameStrings();
-		GameLog=new GameLog();
 		GameWorld = new GameWorld();
 		CombatSystem = new CombatSystem();
 		SpawnSystem = new SpawnSystem();
@@ -56,11 +56,4 @@ public partial class Global : Node
 	{
 		LuaScripts.Update(delta);
 	}
-    
-    public override void _ExitTree()
-    {
-		StatsContainer.Dispose();
-		StatsContainer=null;
-        base._ExitTree();
-    }
 }

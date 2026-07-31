@@ -5,10 +5,7 @@ public partial class Mraumir : BaseMap
 {
     public override void _Ready()
     {
-        base._Ready();
-        Global.StatsContainer.BindEntity(() =>
-        {
-           return Global.GameWorld.Player; 
-        });
+        base._Ready();        
+        Global.StatsContainer.BindEntity(Global.GameWorld.Player);
     }
 }

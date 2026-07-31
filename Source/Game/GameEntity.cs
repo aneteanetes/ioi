@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using Geranium.Reflection;
 using Godot;
 using ioi.Scripting;
@@ -73,15 +74,15 @@ namespace ioi.Game
             if (set.HasValue)
             {
                 var color = set.Value;
-
+                
                 var colorTable = new Table(_script.ScriptHost);
-                colorTable.Set("r", DynValue.NewNumber(color.R));
-                colorTable.Set("g", DynValue.NewNumber(color.G));
-                colorTable.Set("b", DynValue.NewNumber(color.B));
+                colorTable.Set("r", DynValue.NewNumber(color.R8));
+                colorTable.Set("g", DynValue.NewNumber(color.G8));
+                colorTable.Set("b", DynValue.NewNumber(color.B8));
                 colorTable.Set("a", DynValue.NewNumber(255));
 
                 this[key] = DynValue.NewTable(colorTable);
-
+                
                 return set.Value;
             }
             else
@@ -104,8 +105,9 @@ namespace ioi.Game
                 var g = Convert.ToByte(table["g"]);
                 var b = Convert.ToByte(table["b"]);
                 var a = Convert.ToByte(table["a"]);
-
-                return new Color(r, g, b, a);
+                
+                
+                return Godot.Color.Color8(r, g, b, a);
             }
             else
             {
@@ -117,7 +119,7 @@ namespace ioi.Game
                 if (a == 0)
                     a = 255;
 
-                return new Color(r, g, b, a);
+                return Godot.Color.Color8(r, g, b, a);
             }
         }
         
@@ -295,6 +297,22 @@ namespace ioi.Game
             return this["inventory"].Table.Values.Select(v => v.UserData.Object.As<GameEntity>()).ToArray();
         }
 
+        internal Rect2 Region(string key)
+        {
+            var value = this[key];
+            if (value.IsNil() || value.Type != DataType.Table)
+                return new Rect2(0,0,0,0);
+            
+            var table = value.Table;
+            
+            var x = Convert.ToSingle(table[1]);
+            var y = Convert.ToSingle(table[2]);
+            var width = Convert.ToSingle(table[3]);
+            var height = Convert.ToSingle(table[4]);
+            
+            return new Rect2(x,y,width,height);
+        }
+        
         /// <summary>
         /// Is entity is unconscious, than player can't control it
         /// </summary>

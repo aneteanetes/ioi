@@ -1,3 +1,4 @@
+using Geranium.Reflection;
 using Godot;
 using ioi.Source.Scenes;
 using ioi.Tiled.Map;
@@ -12,7 +13,8 @@ public partial class BaseMap : Node2D, IViewportScene
 	// lighting
 	
 	[Export] public TileMapLayer TileMap { get; set; }
-    [Export] public CharacterBody2D Player { get; set; }
+    [Export] public Creature Player { get; set; }
+    [Export] public PlayerCamera Camera { get; set; }
     [Export] public Node2D EnemiesContainer { get; set; }
     [Export] public ColorRect FogColorRect { get; set; }
     [Export] public CanvasModulate DayNightLight { get; set; }
@@ -42,12 +44,34 @@ public partial class BaseMap : Node2D, IViewportScene
         CalculateMap();
         InitShader();
         
+        Player.FindChild("RemoteTransform2D").As<RemoteTransform2D>().RemotePath = Camera.GetPath();
+        PossessCreature(Player);
+        Global.Player = Player;
+        Global.Player.BindGameEntity(Global.GameWorld.Player);
+        
         _currentRadius = BaseViewRadius;
         
         AfterReady?.Invoke();
     }
-
+    
     public Action AfterReady;
+
+     public void PossessCreature(Creature targetCreature)
+    {
+        if (targetCreature == null) return;
+        
+        // switch to AI
+        if (Player != null)
+        {
+            // Player.GetComponent<AI>().Enabled = true;
+        }
+        
+        Player = targetCreature;        
+        Camera.Target = targetCreature;
+
+        // disable AI
+        // Player.GetComponent<AI>().Enabled = false;
+    }
     
     private void CalculateMap()
     {
@@ -250,23 +274,23 @@ public partial class BaseMap : Node2D, IViewportScene
 	
 	public void ProcessClick(Vector2 posWorld, Vector2 posLocal)
 	{
-		var player = GetNode<Player>("Player");
-		if (player != null)
+		//var player = GetNode<Creature>("Player");
+		if (Player != null)
 		{
-			player.SetTargetPosition(posWorld);
+			Player.SetTargetPosition(posWorld);
 			GetViewport().SetInputAsHandled();
 		}
 	}
-
+    
     //minimap part
-
+    
     public bool IsWallInGrid(int tileX, int tileY)
     {
         Vector2I globalTilePos = new Vector2I(tileX, tileY) + _mapOrigin;
         TileData tileData = TileMap.GetCellTileData(globalTilePos);
         return tileData != null;
     }
-
+    
     public Vector2I GetPlayerTile()
     {
         if (Player == null) return new Vector2I(-1, -1);
@@ -294,5 +318,10 @@ public partial class BaseMap : Node2D, IViewportScene
         }
         return list;
     }
-
+    
+    public override void _ExitTree()
+    {
+        Global.Player=null;
+        base._ExitTree();
+    }
 }

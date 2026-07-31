@@ -39,4 +39,11 @@ public partial class GameLog : RichTextLabel
 	
 	public void Log(DrawText drawText)
 		=> Log(drawText.ToString());
+    
+    public override void _ExitTree()
+    {
+		if(Global.GameLog==this)
+			Global.GameLog=null;
+        base._ExitTree();
+    }
 }

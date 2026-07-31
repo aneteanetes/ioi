@@ -33,7 +33,7 @@ project/assembly_name="ioi"
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Localization/en.po", "res://Localization/ru.po")
+locale/translations=PackedStringArray("res://Localization/main/en.po", "res://Localization/main/ru.po")
 
 [physics]
 

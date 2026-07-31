@@ -59,8 +59,9 @@ namespace ioi.Scripting
         /// <returns></returns>
         public static DynValue Init(this Table table, Table initProps)
         {
+            //autoinit
             Stack<DynValue> initList = new();
-
+            
             //base init in object
             GetInitMethod(table, initList);
 

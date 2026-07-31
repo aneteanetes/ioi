@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bgaj5audn0fn7"]
+
+[ext_resource type="Script" uid="uid://chfweai5rjgxd" path="res://Scenes/Game/Creatures/Creature.cs" id="1_ku3np"]
+[ext_resource type="Shader" uid="uid://bm4xqbfxatdon" path="res://Resources/Assets/Shaders/bevel.gdshader" id="2_om0w5"]
+[ext_resource type="Texture2D" uid="uid://b4ddkbb2w6pr7" path="res://Resources/Assets/Images/Light/128x128 textures (44).png" id="4_mn1rq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sxqa"]
+shader = ExtResource("2_om0w5")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77hrj"]
+
+[node name="Creature" type="CharacterBody2D" unique_id=1872520927]
+y_sort_enabled = true
+script = ExtResource("1_ku3np")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784521085]
+material = SubResource("ShaderMaterial_7sxqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2022445358]
+shape = SubResource("CircleShape2D_77hrj")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1819024295]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_mn1rq")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=293653749]
+remote_path = NodePath("..")

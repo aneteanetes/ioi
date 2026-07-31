@@ -1,16 +1,20 @@
 Templates.Classes.Warrior = {
-
+    
     class='Warrior',
 
     rage=0,
-
+    
     basemhp=100,
     mhp=100,
     hp=100,
     basemindmg=2,
     basemaxdmg=4,
     ragegain=5,
-
+    
+    tileset="res://Resources/Assets/Tilesets/transparent_packed.png",
+    tileset_region={448, 0, 16, 16},
+    color={255,0,0},
+    
     abilities = {
         "Templates.Abilities.Warrior1Supress",
         "Templates.Abilities.Warrior2Regen",
@@ -35,8 +39,6 @@ Templates.Classes.Warrior = {
 
         table.insert(obj.perks,Templates.Perks.Experienced);
         table.insert(obj.perks,Templates.Perks.Human);
-
-
     end,
 
     levelup = function (obj)

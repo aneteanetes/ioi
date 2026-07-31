@@ -3,27 +3,22 @@
 [ext_resource type="Script" uid="uid://d3fq5517wi4qi" path="res://Scenes/Game/Map/Base/BaseMap.cs" id="1_mbmb4"]
 [ext_resource type="TileSet" uid="uid://sbg0dqcyjy75" path="res://Resources/Game/Tilesets/base.tres" id="2_0ceyt"]
 [ext_resource type="Shader" uid="uid://bm4xqbfxatdon" path="res://Resources/Assets/Shaders/bevel.gdshader" id="3_7sxqa"]
-[ext_resource type="Script" uid="uid://d1d1doytfwpij" path="res://Scenes/Game/Map/Base/PlayerCamera.cs" id="3_eywhk"]
-[ext_resource type="Script" uid="uid://chfweai5rjgxd" path="res://Scenes/Game/Map/Base/Player.cs" id="3_fvvxy"]
+[ext_resource type="PackedScene" uid="uid://bgaj5audn0fn7" path="res://Scenes/Game/Creatures/Creature.tscn" id="4_7sxqa"]
 [ext_resource type="Shader" uid="uid://bkij0mspth5ab" path="res://Resources/Assets/Shaders/fog_of_war.gdshader" id="4_r6dk1"]
-[ext_resource type="Texture2D" uid="uid://b4ddkbb2w6pr7" path="res://Resources/Assets/Images/Light/128x128 textures (44).png" id="6_bedet"]
+[ext_resource type="Script" uid="uid://d1d1doytfwpij" path="res://Scenes/Game/Map/Base/PlayerCamera.cs" id="5_bedet"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88ity"]
 shader = ExtResource("3_7sxqa")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sxqa"]
-shader = ExtResource("3_7sxqa")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ceyt"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bedet"]
 shader = ExtResource("4_r6dk1")
 
-[node name="BaseMap" type="Node2D" unique_id=634903191 node_paths=PackedStringArray("TileMap", "Player", "EnemiesContainer", "FogColorRect", "DayNightLight")]
+[node name="BaseMap" type="Node2D" unique_id=634903191 node_paths=PackedStringArray("TileMap", "Player", "Camera", "EnemiesContainer", "FogColorRect", "DayNightLight")]
 y_sort_enabled = true
 script = ExtResource("1_mbmb4")
 TileMap = NodePath("WallLayer")
 Player = NodePath("Player")
+Camera = NodePath("Camera2D")
 EnemiesContainer = NodePath("ObjectsLayer")
 FogColorRect = NodePath("FogColorRect")
 DayNightLight = NodePath("CanvasModulate")
@@ -42,27 +37,17 @@ y_sort_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=191999045]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1649852459]
-y_sort_enabled = true
-script = ExtResource("3_fvvxy")
+[node name="Player" parent="." unique_id=1872520927 instance=ExtResource("4_7sxqa")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1300860398]
-material = SubResource("ShaderMaterial_7sxqa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1717775527]
-shape = SubResource("RectangleShape2D_0ceyt")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1917553329]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=11691518]
 position = Vector2(483, 279)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-script = ExtResource("3_eywhk")
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=199275433]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("6_bedet")
+script = ExtResource("5_bedet")
 
 [node name="FogColorRect" type="ColorRect" parent="." unique_id=1676255127]
 z_index = 20
 material = SubResource("ShaderMaterial_bedet")
+
+[editable path="Player"]

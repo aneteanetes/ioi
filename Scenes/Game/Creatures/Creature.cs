@@ -1,32 +1,78 @@
 using Godot;
+using ioi.Game;
 using System.Collections.Generic;
 
-public partial class Player : CharacterBody2D
+public partial class Creature : CharacterBody2D
 {
     // Оставляем вашу скорость (количество клеток в секунду)
     [Export] public float TileSize { get; set; } = 16.0f;
     [Export] public float MoveSpeed { get; set; } = 10.0f;
-    
+    [Export] public string[] Prototypes { get; set; } = [];
+
+    public GameEntity GameEntity { get; private set; }
+            
     private AStarGrid2D _astar = new AStarGrid2D();
     private Queue<Vector2I> _currentPath = new Queue<Vector2I>();
     private bool _isMoving = false;
     private Vector2 _targetWorldPos;
-    private Camera2D _camera;
     private Sprite2D _sprite;
     private Tween _idleTween;
     private Tween _stepTween;
 
     private bool _moveOffset;
-
-    public override void _Ready()
+    
+    public override async void _Ready()
     {
-        _camera = GetNode<Camera2D>("Camera2D");
         _sprite = GetNode<Sprite2D>("Sprite2D");
+        
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+
         GlobalPosition = SnapToGrid(GlobalPosition);
         _targetWorldPos = GlobalPosition;
+        
+        InitGameEntity();
 
+        // if (_camera != null)
+        // {
+        //     _camera.GlobalPosition = GlobalPosition;
+        //     _camera.Offset = Vector2.Zero;
+        //     _camera.MakeCurrent(); // Принудительно делаем её активной для этого SubViewport
+        // }
+        
         InitAStar();
         StartIdleAnimation();
+    }
+
+    private void InitGameEntity()
+    {
+        if(this.Prototypes.IsEmpty())
+            return;
+        
+        this.GameEntity = Global.SpawnSystem.SpawnEntity(this.Prototypes);
+        LoadTileFromGameEntity(GameEntity);
+    }
+
+    public void BindGameEntity(GameEntity gameEntity)
+    {
+        this.GameEntity = gameEntity;
+        LoadTileFromGameEntity(GameEntity);
+    }
+    
+    public void LoadTileFromGameEntity(GameEntity gameEntity)
+    {
+        this.LoadTile(gameEntity["tileset"].String,
+            gameEntity.Region("tileset_region"),
+            gameEntity.Color("color"));    
+    }
+    
+    public void LoadTile(string tilset, Rect2 region, Color color)
+    {
+        var atlas = new AtlasTexture();
+        atlas.Atlas = GD.Load<Texture2D>(tilset);
+        atlas.Region = region;
+        
+        _sprite.Texture = atlas;
+        _sprite.Modulate = color;
     }
     
     private void InitAStar()
@@ -38,7 +84,8 @@ public partial class Player : CharacterBody2D
         _astar.DiagonalMode = AStarGrid2D.DiagonalModeEnum.Never; 
         _astar.Update();
         
-        var wallLayer = GetParent().GetNodeOrNull<TileMapLayer>("WallLayer");
+        var wallLayer = GetTree().CurrentScene.GetNodeOrNull<TileMapLayer>("WallLayer") 
+                    ?? GetParent().GetNodeOrNull<TileMapLayer>("WallLayer");
         if (wallLayer != null)
         {
             foreach (Vector2I cell in wallLayer.GetUsedCells())
@@ -56,8 +103,8 @@ public partial class Player : CharacterBody2D
         if (_astar.IsPointSolid(endCell)) return;
         
             
-        if (_camera.Offset != Vector2.Zero)
-            _moveOffset=true;
+        // if (_camera.Offset != Vector2.Zero)
+        //     _moveOffset=true;
                 
         Godot.Collections.Array<Vector2I> pathPoints = _astar.GetIdPath(startCell, endCell);
         
@@ -75,12 +122,6 @@ public partial class Player : CharacterBody2D
     
     public override void _Process(double delta)
     {
-        if (Global.ResetCameraMove)
-        {
-            _moveOffset=false;
-            Global.ResetCameraMove=false;
-        }
-
         if (_isMoving)
         {
             GlobalPosition = GlobalPosition.MoveToward(_targetWorldPos, MoveSpeed * TileSize * (float)delta);
@@ -117,20 +158,20 @@ public partial class Player : CharacterBody2D
             StartStepAnimation();
         }
         
-        if(_isMoving || _currentPath.Count > 0)
-        {
-            if (_moveOffset)
-            {            
-                _camera.Offset = _camera.Offset.Lerp(Vector2.Zero, 5 * (float)delta);
+        // if(_isMoving || _currentPath.Count > 0)
+        // {
+        //     if (_moveOffset)
+        //     {            
+        //         _camera.Offset = _camera.Offset.Lerp(Vector2.Zero, 5 * (float)delta);
                 
-                // Отключаем процесс, когда значение достаточно близко к нулю
-                if (_camera.Offset.DistanceSquaredTo(Vector2.Zero) < 0.01f)
-                {
-                    _camera.Offset = Vector2.Zero;
-                    _moveOffset=false;
-                }
-            }
-        }
+        //         // Отключаем процесс, когда значение достаточно близко к нулю
+        //         if (_camera.Offset.DistanceSquaredTo(Vector2.Zero) < 0.01f)
+        //         {
+        //             _camera.Offset = Vector2.Zero;
+        //             _moveOffset=false;
+        //         }
+        //     }
+        // }
     }
 
     private void StartStepAnimation()

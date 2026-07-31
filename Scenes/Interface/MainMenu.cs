@@ -48,7 +48,7 @@ public partial class MainMenu : Control
 	
     private static async Task NewRoguelikeAsync(Node scene)
     {
-		Global.GameWorld.Player = Global.SpawnSystem.SpawnCharacter("Comebached","Human","Warrior");
+		Global.GameWorld.Player = Global.SpawnSystem.SpawnCharacter(Global.Strings["MAIN_NAME"],"Human","Warrior");
 		scene.As<MainGame>().Init("res://Scenes/Game/Map/Locations/Mraumir/mraumir.tscn");
     }
 	
@@ -72,6 +72,8 @@ public partial class MainMenu : Control
 	
 	private void OnExitPressed()
 	{
+		GC.Collect();
+		GC.WaitForPendingFinalizers();
 		GetTree().Quit();
 	}
 }

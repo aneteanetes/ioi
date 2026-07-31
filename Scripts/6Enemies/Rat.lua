@@ -9,7 +9,7 @@ Templates.enemy.rat = {
     idleAmplitude=.5,
     stepSleepMS=0,
     pathSleepMS=0,
-
+    
     movearea = {
         x=-9,
         y=-9,
