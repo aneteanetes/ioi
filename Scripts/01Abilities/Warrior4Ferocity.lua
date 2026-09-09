@@ -8,8 +8,8 @@ Templates.Abilities.Warrior4Ferocity = {
     cost=0,
     element = "physical",
     duration=0,
-    tileset="Consolas1",
-    tileid=583,
+    tileset="res://Resources/Assets/Tilesets/transparent_packed.png",
+    tileset_region={512, 0, 16, 16},
     color={219, 84, 0},
     location="combat"
 }

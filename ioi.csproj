@@ -1,6 +1,7 @@
 <Project Sdk="Godot.NET.Sdk/4.7.1">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>13</LangVersion>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
@@ -8,6 +9,7 @@
   <ItemGroup>
 		<PackageReference Include="MoonSharp" Version="2.0.0" />
 		<PackageReference Include="Geranium.Reflection" Version="2.1.4" />
+		<PackageReference Include="MoonSharp.Debugger.VsCode" Version="2.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 

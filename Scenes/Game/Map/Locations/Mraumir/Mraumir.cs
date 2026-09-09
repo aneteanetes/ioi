@@ -7,5 +7,7 @@ public partial class Mraumir : BaseMap
     {
         base._Ready();        
         Global.StatsContainer.BindEntity(Global.GameWorld.Player);
+        Global.PartyContainer.UpdateParty([Global.GameWorld.Player]);
+        Global.AbilitiesContainer.BindEntity(Global.GameWorld.Player);
     }
 }

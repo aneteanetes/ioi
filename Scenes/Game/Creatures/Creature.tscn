@@ -7,17 +7,21 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7sxqa"]
 shader = ExtResource("2_om0w5")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_77hrj"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mckfp"]
 
-[node name="Creature" type="CharacterBody2D" unique_id=1872520927]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mckfp"]
+
+[node name="Creature" type="CharacterBody2D" unique_id=1872520927 node_paths=PackedStringArray("MouseArea")]
 y_sort_enabled = true
+input_pickable = true
 script = ExtResource("1_ku3np")
+MouseArea = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784521085]
 material = SubResource("ShaderMaterial_7sxqa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2022445358]
-shape = SubResource("CircleShape2D_77hrj")
+shape = SubResource("CircleShape2D_mckfp")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1819024295]
 scale = Vector2(0.75, 0.75)
@@ -25,3 +29,8 @@ texture = ExtResource("4_mn1rq")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=293653749]
 remote_path = NodePath("..")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=525607118]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=750961298]
+shape = SubResource("RectangleShape2D_mckfp")

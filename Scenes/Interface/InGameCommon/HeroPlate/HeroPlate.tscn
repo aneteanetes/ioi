@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bokns8ei2rdgv"]
+
+[ext_resource type="FontFile" uid="uid://dga8cavmqf8lv" path="res://Resources/Assets/Fonts/Retron2000.ttf" id="1_i54yu"]
+[ext_resource type="Texture2D" uid="uid://n0o8o4ku8c01" path="res://Resources/Assets/Images/Borders/commonborder.png" id="1_ynbvg"]
+[ext_resource type="Script" uid="uid://didadk1lgmxbw" path="res://Scenes/Interface/InGameCommon/HeroPlate/HeroPlate.cs" id="2_xvc6h"]
+[ext_resource type="Texture2D" uid="uid://djvv2q13eiecq" path="res://Resources/Assets/Tilesets/transparent_packed.png" id="3_74ekj"]
+[ext_resource type="Texture2D" uid="uid://hdk46mhed6oq" path="res://Resources/Assets/Images/Borders/windowbackground.png" id="5_kug14"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hjt2"]
+texture = ExtResource("1_ynbvg")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ynbvg"]
+load_path = "res://.godot/imported/transparent_packed.png-81919c5c5d19345054d70e9d52cb93db.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hjt2"]
+atlas = SubResource("CompressedTexture2D_ynbvg")
+region = Rect2(448, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anu4k"]
+atlas = ExtResource("3_74ekj")
+region = Rect2(624, 160, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anu4k"]
+texture = ExtResource("5_kug14")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.54901963, 0.41960785, 0.33333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmsxd"]
+
+[node name="HeroPlate" type="PanelContainer" unique_id=237752054 node_paths=PackedStringArray("Icon", "NameEntity", "Health", "Resource")]
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hjt2")
+script = ExtResource("2_xvc6h")
+Icon = NodePath("HBoxContainer/PanelContainer/Icon")
+NameEntity = NodePath("HBoxContainer/MarginContainer/VBoxContainer/NameLabel")
+Health = NodePath("HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HealthBar")
+Resource = NodePath("HBoxContainer/MarginContainer/VBoxContainer/ResourceLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=673630045]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=567801144]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hjt2")
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/PanelContainer" unique_id=598286004]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_4hjt2")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1017838459]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=1200729167]
+layout_mode = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1295403905]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_i54yu")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=cyan]Возвращённый[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=51942191]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1563445430]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_anu4k")
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=764100338]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_anu4k")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=419464953]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HealthBar" type="ProgressBar" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=1757408824]
+modulate = Color(2.7525783, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_rmsxd")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="ResourceLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=2048629285]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=#c5101c]Ярость: 30[/color]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1

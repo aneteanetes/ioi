@@ -34,24 +34,25 @@ Templates.enemy.rat = {
 
     loottablename=nil,
     loottable=nil,
-
-    icon='r',
-    color={173,113,56},
-    
+        
+    -- tileset="res://Resources/Assets/Tilesets/transparent_packed.png",
+    -- tileset_region={416, 128, 16, 16},
+    -- color={149,34,237},
+        
     init = function (obj,props)
         local components = obj["_components"];
-
+        
         table.insert(components,2,"Templates.Base.Enemy");
         table.insert(components,1,"Templates.Races.animal");
-
-        if props.class ~= nil then
+        
+        if props ~= nil and props.class ~= nil then
             table.insert(components,1,"Templates.Classes."..props.class);
         else
             table.insert(components,1,"Templates.Classes.bruiser");
         end
-
+        
         table.insert(components,1,"Templates.Base.Moveable");
-
+        
         if obj.loottablename ~= nil then
             obj.loottable = world.SpawnLootTable(obj.loottablename);
         end

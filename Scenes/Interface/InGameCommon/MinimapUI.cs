@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class MinimapUI : TextureRect
 {
@@ -16,22 +17,25 @@ public partial class MinimapUI : TextureRect
     [Export] public int VisibleTilesRadius = 40; 
     
     private BaseMap _baseMap;
-    private Image _minimapImage;
-    private ImageTexture _minimapTexture;
     private Vector2 _tileSizeInPixels;
+    private Node _sceneSlot;
+    private BaseMap _pendingMap;
 
     public override void _Ready()
     {
-        sceneSlot = GetTree().Root.GetNodeOrNull("MainGame/GameLayout/GameViewportContainer/GameViewport/SceneSlot");
-        if (sceneSlot != null)
+        // Отключаем дефолтную текстуру, так как теперь рисуем сами на GPU
+        Texture = null;
+
+        _sceneSlot = GetTree().Root.GetNodeOrNull("MainGame/GameLayout/SceneSlot");
+        if (_sceneSlot != null)
         {
-            if (sceneSlot.GetChildCount() > 0)
+            if (_sceneSlot.GetChildCount() > 0)
             {
-                SetupMinimap(sceneSlot.GetChild(0) as BaseMap);
+                SetupMinimap(_sceneSlot.GetChild(0) as BaseMap);
             }
             else
             {
-                sceneSlot.ChildEnteredTree += OnMapEnteredSlot;
+                _sceneSlot.ChildEnteredTree += OnMapEnteredSlot;
             }
         }
     }
@@ -40,7 +44,7 @@ public partial class MinimapUI : TextureRect
     {        
         if (node is BaseMap map)
         {
-            map.AfterReady+= OnPendingMapReady;
+            map.AfterReady += OnPendingMapReady;
             _pendingMap = map;
         }
     }
@@ -49,9 +53,8 @@ public partial class MinimapUI : TextureRect
     {
         SetupMinimap(_pendingMap);
         
-        // Отписываемся сразу после выполнения
-        if (sceneSlot != null) 
-            sceneSlot.ChildEnteredTree -= OnMapEnteredSlot;
+        if (_sceneSlot != null) 
+            _sceneSlot.ChildEnteredTree -= OnMapEnteredSlot;
         
         if (_pendingMap != null)
         {
@@ -63,76 +66,18 @@ public partial class MinimapUI : TextureRect
     private void SetupMinimap(BaseMap map)
     {
         _baseMap = map;
-        if (_baseMap == null) return;
-
-        // ВАЖНО: Теперь размер текстуры равен РАЗМЕРУ ОКНА миникарты в UI (например, 200x200 пикселей)
-        int viewWidth = (int)Size.X;
-        int viewHeight = (int)Size.Y;
-
-        if (viewWidth <= 0 || viewHeight <= 0)
-        {
-            viewWidth = 200;
-            viewHeight = 200;
-        }
-
-        _minimapImage = Image.CreateEmpty(viewWidth, viewHeight, false, Image.Format.Rgba8);
-        _minimapTexture = ImageTexture.CreateFromImage(_minimapImage);
-        
-        TextureFilter = TextureFilterEnum.Nearest;
-        Texture = _minimapTexture;
     }
 
     public override void _Process(double delta)
     {
         if (_baseMap == null) return;
 
-        // Вычисляем, сколько экранных пикселей занимает один тайл при текущем зуме
-        _tileSizeInPixels = new Vector2(Size.X / (VisibleTilesRadius * 2), Size.Y / (VisibleTilesRadius * 2));
-
-        UpdateMinimapTexture();
+        // Вычисляем размер одного тайла на миникарте
+        float scale = 1.5f;
+        _tileSizeInPixels = new Vector2(Size.X / (VisibleTilesRadius * scale), Size.Y / (VisibleTilesRadius * scale));
+        
+        // Заставляем Godot вызвать метод _Draw на этом кадре
         QueueRedraw();
-    }
-
-    private void UpdateMinimapTexture()
-    {
-        byte[,] grid = _baseMap.FogGrid;
-        int mapWidth = _baseMap.MapWidth;
-        int mapHeight = _baseMap.MapHeight;
-        Vector2I playerTile = _baseMap.GetPlayerTile();
-
-        int viewWidth = _minimapImage.GetWidth();
-        int viewHeight = _minimapImage.GetHeight();
-
-        // Проходим по каждому физическому ПИКСЕЛЮ окошка миникарты
-        for (int screenX = 0; screenX < viewWidth; screenX++)
-        {
-            for (int screenY = 0; screenY < viewHeight; screenY++)
-            {
-                // Переводим координату экранного пикселя в координату тайла на большой карте относительно игрока
-                float relativeTileX = (screenX - (viewWidth / 2f)) / _tileSizeInPixels.X + playerTile.X;
-                float relativeTileY = (screenY - (viewHeight / 2f)) / _tileSizeInPixels.Y + playerTile.Y;
-
-                int mapX = Mathf.FloorToInt(relativeTileX);
-                int mapY = Mathf.FloorToInt(relativeTileY);
-
-                Color pixelColor = DarknessColor;
-
-                // Проверяем, попадает ли этот тайл в границы существующей карты
-                if (mapX >= 0 && mapX < mapWidth && mapY >= 0 && mapY < mapHeight)
-                {
-                    byte fogStatus = grid[mapX, mapY];
-
-                    if (fogStatus == 1)
-                        pixelColor = _baseMap.IsWallInGrid(mapX, mapY) ? ShadowWallColor : ShadowFloorColor;
-                    else if (fogStatus == 2)
-                        pixelColor = _baseMap.IsWallInGrid(mapX, mapY) ? VisibleWallColor : VisibleFloorColor;
-                }
-
-                _minimapImage.SetPixel(screenX, screenY, pixelColor);
-            }
-        }
-
-        _minimapTexture.Update(_minimapImage);
     }
 
     public override void _Draw()
@@ -140,42 +85,71 @@ public partial class MinimapUI : TextureRect
         if (_baseMap == null) return;
 
         Vector2 centerOfScreen = Size / 2f;
-
-        // 1. Игрок ВСЕГДА находится ровно по центру миникарты, так как карта скроллится под ним
-        DrawCircle(centerOfScreen, MarkerSize, PlayerColor);
-
-        // 2. Отрисовка видимых врагов со смещением относительно игрока
+        byte[,] grid = _baseMap.FogGrid;
+        int mapWidth = _baseMap.MapWidth;
+        int mapHeight = _baseMap.MapHeight;
         Vector2I playerTile = _baseMap.GetPlayerTile();
+
+        // 1. Сначала заливаем фон миникарты цветом темноты
+        DrawRect(new Rect2(Vector2.Zero, Size), DarknessColor);
+
+        // Вычисляем диапазон тайлов вокруг игрока, которые физически влезают в окно миникарты
+        int halfTilesX = Mathf.CeilToInt(centerOfScreen.X / _tileSizeInPixels.X);
+        int halfTilesY = Mathf.CeilToInt(centerOfScreen.Y / _tileSizeInPixels.Y);
+
+        int minX = Mathf.Max(0, playerTile.X - halfTilesX);
+        int maxX = Mathf.Min(mapWidth - 1, playerTile.X + halfTilesX);
+        int minY = Mathf.Max(0, playerTile.Y - halfTilesY);
+        int maxY = Mathf.Min(mapHeight - 1, playerTile.Y + halfTilesY);
+
+        // 2. Отрисовка тайлов (GPU Draw Rects гораздо быстрее попиксельного CPU цикла)
+        for (int mapX = minX; mapX <= maxX; mapX++)
+        {
+            for (int mapY = minY; mapY <= maxY; mapY++)
+            {
+                byte fogStatus = grid[mapX, mapY];
+                if (fogStatus == 0) continue; // Не исследован (уже залит черным)
+
+                Color tileColor = DarknessColor;
+                bool isWall = _baseMap.IsWallInGrid(mapX, mapY);
+
+                if (fogStatus == 1)
+                    tileColor = isWall ? ShadowWallColor : ShadowFloorColor;
+                else if (fogStatus == 2)
+                    tileColor = isWall ? VisibleWallColor : VisibleFloorColor;
+
+                // Вычисляем позицию прямоугольника на экране миникарты относительно центра
+                Vector2 tileOffset = new Vector2(mapX - playerTile.X, mapY - playerTile.Y);
+                Vector2 screenPos = centerOfScreen + (tileOffset * _tileSizeInPixels);
+
+                // Отрисовываем тайл
+                DrawRect(new Rect2(screenPos, _tileSizeInPixels), tileColor);
+            }
+        }
+
+        // 3. Отрисовка противников
         foreach (Vector2I enemyTile in _baseMap.GetVisibleEnemiesTiles())
         {
-            // Вычисляем расстояние от игрока до врага в тайлах
             Vector2 tileOffset = new Vector2(enemyTile.X - playerTile.X, enemyTile.Y - playerTile.Y);
-            
-            // Переводим это расстояние в пиксели экрана
             Vector2 enemyScreenPos = centerOfScreen + (tileOffset * _tileSizeInPixels) + (_tileSizeInPixels / 2f);
 
-            // Рисуем врага, только если он физически попадает в границы окошка миникарты
+            // Проверяем, находится ли противник в границах текстуры миникарты
             if (enemyScreenPos.X >= 0 && enemyScreenPos.X <= Size.X && enemyScreenPos.Y >= 0 && enemyScreenPos.Y <= Size.Y)
             {
                 DrawCircle(enemyScreenPos, MarkerSize, EnemyColor);
             }
         }
+
+        // 4. Отрисовка игрока строго по центру
+        DrawCircle(centerOfScreen, MarkerSize, PlayerColor);
     }
     
-    private Node sceneSlot;
-    private BaseMap _pendingMap;
     public override void _ExitTree()
     {
-        Texture = null;
-        
-        _minimapImage?.Dispose();
-        _minimapTexture?.Dispose();
-        
         if (_pendingMap != null)
         {
             _pendingMap.AfterReady -= OnPendingMapReady;
         }
-        
         base._ExitTree();
     }
 }

@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#Warrior
+msgid "abil_war_supress"
+msgstr "Усмирение",
+
+msgid "abil_war_supress_desc"
+msgstr "{desc_warrior_exp}.\n\n{desc_warrior_special_move}.\n\nЕсли у врага полное здоровье\n-\nнаносит & урона.\nИначе 0.",
+
+msgid "abil_war_regen"
+msgstr "Регенерация",
+
+msgid "abil_war_regen_desc"
+msgstr "{desc_warrior_combat_want}.\n\n{desk_skill}.\n\nВосстанавливает ^ здоровья.",
+
+msgid "abil_war_finisher"
+msgstr "Добивание",
+
+msgid "abil_war_finisher_desc"
+msgstr "{desc_warrior_exp}.\n\n{desc_warrior_special_move}.\n\nЕсли здоровье врага меньше 25%\n-\nнаносит & урона.\nИначе 0.",
+
+msgid "abil_war_ferocity"
+msgstr "Свирепость",
+
+msgid "abil_war_ferocity_desc"
+msgstr "{desc_warrior_exp}.\n\n{desc_trance}.\n\nУвеличивает прирост ярости от удара на &.",
+  

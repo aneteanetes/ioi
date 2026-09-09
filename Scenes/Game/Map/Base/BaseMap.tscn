@@ -2,13 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d3fq5517wi4qi" path="res://Scenes/Game/Map/Base/BaseMap.cs" id="1_mbmb4"]
 [ext_resource type="TileSet" uid="uid://sbg0dqcyjy75" path="res://Resources/Game/Tilesets/base.tres" id="2_0ceyt"]
-[ext_resource type="Shader" uid="uid://bm4xqbfxatdon" path="res://Resources/Assets/Shaders/bevel.gdshader" id="3_7sxqa"]
 [ext_resource type="PackedScene" uid="uid://bgaj5audn0fn7" path="res://Scenes/Game/Creatures/Creature.tscn" id="4_7sxqa"]
 [ext_resource type="Shader" uid="uid://bkij0mspth5ab" path="res://Resources/Assets/Shaders/fog_of_war.gdshader" id="4_r6dk1"]
 [ext_resource type="Script" uid="uid://d1d1doytfwpij" path="res://Scenes/Game/Map/Base/PlayerCamera.cs" id="5_bedet"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_88ity"]
-shader = ExtResource("3_7sxqa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bedet"]
 shader = ExtResource("4_r6dk1")
@@ -17,7 +13,7 @@ shader = ExtResource("4_r6dk1")
 y_sort_enabled = true
 script = ExtResource("1_mbmb4")
 TileMap = NodePath("WallLayer")
-Player = NodePath("Player")
+Player = NodePath("ObjectsLayer/Player")
 Camera = NodePath("Camera2D")
 EnemiesContainer = NodePath("ObjectsLayer")
 FogColorRect = NodePath("FogColorRect")
@@ -28,20 +24,19 @@ tile_set = ExtResource("2_0ceyt")
 
 [node name="WallLayer" type="TileMapLayer" parent="." unique_id=1556353250]
 y_sort_enabled = true
-material = SubResource("ShaderMaterial_88ity")
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 7, 0, 17, 0, 0, 0)
 tile_set = ExtResource("2_0ceyt")
 
 [node name="ObjectsLayer" type="Node2D" parent="." unique_id=359247023]
 y_sort_enabled = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=191999045]
+[node name="Player" parent="ObjectsLayer" unique_id=1872520927 instance=ExtResource("4_7sxqa")]
 
-[node name="Player" parent="." unique_id=1872520927 instance=ExtResource("4_7sxqa")]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=191999045]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=11691518]
 position = Vector2(483, 279)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("5_bedet")
@@ -49,5 +44,6 @@ script = ExtResource("5_bedet")
 [node name="FogColorRect" type="ColorRect" parent="." unique_id=1676255127]
 z_index = 20
 material = SubResource("ShaderMaterial_bedet")
+mouse_filter = 2
 
-[editable path="Player"]
+[editable path="ObjectsLayer/Player"]

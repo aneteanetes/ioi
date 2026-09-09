@@ -4,6 +4,9 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vcf8o"]
 texture = ExtResource("2_tv1lf")
+margins = Vector2i(1, 1)
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(14, 14)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -850,7 +853,7 @@ texture = ExtResource("2_tv1lf")
 7:17/0 = 0
 8:17/0 = 0
 9:17/0 = 0
-10:17/next_alternative_id = 2
+10:17/next_alternative_id = 3
 10:17/0 = 0
 10:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:17/1 = 1
@@ -1089,8 +1092,17 @@ texture = ExtResource("2_tv1lf")
 46:21/0 = 0
 47:21/0 = 0
 48:21/0 = 0
+32:54/0 = 0
+33:55/0 = 0
+34:56/0 = 0
+33:56/0 = 0
+36:54/0 = 0
+35:55/0 = 0
+34:54/0 = 0
 
 [resource]
+tile_shape = 3
+tile_size = Vector2i(4, 4)
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 custom_data_layer_0/name = "type"

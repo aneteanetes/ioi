@@ -7,9 +7,9 @@ public partial class PlayerCamera : Camera2D, IGameCamera
 	
 	public bool CanDrag => true;
 	
-	public float MinZoom => 3f;
+	public float MinZoom => 2f;
 	
-	public float MaxZoom => 4f;
+	public float MaxZoom => 3f;
 
     [Export] public float TransitionSpeed { get; set; } = 8.0f; // Скорость перелета камеры
     

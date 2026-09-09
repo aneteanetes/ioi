@@ -134,7 +134,7 @@ namespace ioi.Game
         public GameEntity GetAbility(int idx)
         {
             var abilValue = this.Func("getAbility", idx);
-
+            
             if (abilValue.IsNotNil())
             {
                 return abilValue.UserData.Object.As<GameEntity>();
@@ -317,5 +317,6 @@ namespace ioi.Game
         /// Is entity is unconscious, than player can't control it
         /// </summary>
         public bool IsUnconscious { get; set; }
+        public Texture2D Texture { get; internal set; }
     }
 }

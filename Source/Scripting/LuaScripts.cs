@@ -1,6 +1,7 @@
 ﻿using Godot;
 using ioi.Game;
 using MoonSharp.Interpreter;
+using MoonSharp.VsCodeDebugger;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +33,16 @@ namespace ioi.Scripting
             UserData.RegisterAssembly(Assembly.GetExecutingAssembly());
             UserData.RegisterType<GameEntity>();
             UserData.RegisterType<Random>();
+            
+            #if DEBUG
+            
+            if(OS.IsDebugBuild())
+            {
+                var debugServer = new MoonSharpVsCodeDebugServer();
+                debugServer.Start();
+                debugServer.AttachToScript(ScriptHost,"GodotNetLuaDebugger");
+            }
+            #endif
             
             Table mathTable = Globals.Get("math").Table;
             mathTable["clamp"] = (Func<double, double, double, double>)Math.Clamp;
@@ -197,7 +208,7 @@ namespace ioi.Scripting
             table.MetaTable = LuaMeta;
             
             table.Init(initProps);
-
+            
             return table;
         }
         

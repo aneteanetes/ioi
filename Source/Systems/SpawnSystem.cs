@@ -30,7 +30,7 @@ public class SpawnSystem
     
     public GameEntity SpawnLootTable(string name)
         => SpawnEntity("Templates.loot.table", $"Templates.loot.table.{name}");
-
+    
     public GameEntity SpawnEntity(Table props, params string[] prototypes)
     {
         var entity = new GameEntity(Global.LuaScripts, props, prototypes);

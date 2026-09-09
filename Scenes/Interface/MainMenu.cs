@@ -28,7 +28,7 @@ public partial class MainMenu : Control
 		_loadButton.Pressed += OnLoadPressed;
 		_backButton.Pressed += OnBackPressed;
 		_exitButton.Pressed += OnExitPressed;
-
+		
 		if (IsInGame)
 		{
 			_backButton.Visible = true;
@@ -58,7 +58,10 @@ public partial class MainMenu : Control
 		GD.Print("Загрузка игры");
 		count++;
 		
-		var result = Global.Strings.Get("UI_MONSTERS", "UI_MONSTERS_PLURAL", count,("count",count));
+		var result = Global.Strings.Get("UI_MONSTERS", "UI_MONSTERS_PLURAL", count,new()
+		{
+			{"count", count}
+		});
 		
 		_loadButton.Text = result;
 		

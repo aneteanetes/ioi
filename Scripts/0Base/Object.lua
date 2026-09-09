@@ -63,7 +63,7 @@
     inventory={},
     equiped={},
     gs=0, --gear score
-
+    
     abilities = {
     },
     
@@ -175,7 +175,7 @@
     flee = function (self,targetEntity)
         
         world.CombatSystem.LogCombat(self:coloredName().." /cd"..loco("tryflee"));
-
+        
         if math.random(100) <= (50+self.ap) then
             
             if(self.type=="player") then
@@ -367,7 +367,7 @@
 
         obj.refresh(obj);
     end,
-
+    
     refresh = function(obj)
 
         local mods={}

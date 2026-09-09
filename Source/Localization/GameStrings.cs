@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Godot;
 
 namespace ioi;
@@ -14,7 +17,7 @@ public class GameStrings
         get => Get(key);
     }
     
-    public string Get(string key, params (string Key, object Value)[] data)
+    public string Get(string key, Dictionary<string,object> data=null)
     {
         if (string.IsNullOrEmpty(key)) 
             return Empty;
@@ -27,7 +30,7 @@ public class GameStrings
         return Replace(template,data);
     }
 
-    public string Get(string key,string keyPlural, int count=1,params (string Key, object Value)[] data)
+    public string Get(string key,string keyPlural, int count=1,Dictionary<string,object> data=null)
     {
         if (string.IsNullOrEmpty(key)) 
             return Empty;
@@ -40,17 +43,28 @@ public class GameStrings
         return Replace(template,data);
     }
 
-    public string Replace(string text, params (string Key, object Value)[] data)
+    public string Replace(string text, Dictionary<string,object> data)
     {
-        if(data==null || data.Length==0)
+        if(data==null || data.Count==0)
             return text;
 
-        var sb = new StringBuilder(text.Length + (data.Length * 10));
+        var sb = new StringBuilder();
         sb.Append(text);
         
-        for (int i = 0; i < data.Length; i++)
+        string pattern = @"\{([^}]+)\}";
+        
+        foreach (Match match in Regex.Matches(text, pattern))
         {
-            sb.Replace($"{{{data[i].Key}}}", data[i].Value.ToString());
+            var key = match.Value;
+            if (data.TryGetValue(key, out var value))
+            {
+                sb.Replace("{"+key+"}",value.ToString());
+            }
+            else
+            {
+                var translatedValue = TranslationServer.Translate(key);
+                sb.Replace(key,translatedValue);
+            }
         }
         
         return sb.ToString();

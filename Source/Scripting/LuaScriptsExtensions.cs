@@ -64,7 +64,7 @@ namespace ioi.Scripting
             
             //base init in object
             GetInitMethod(table, initList);
-
+            
             // get components
             var sources = table.Get("_components").Table;
             if (sources != null)
@@ -72,16 +72,16 @@ namespace ioi.Scripting
                 foreach (var component in sources.Values.Reverse())
                 {
                     if (component.Type != DataType.String) continue;
-
+                    
                     // 3. Резолвим путь (например, "Templates.Classes.Warrior")
                     var currentTable = ResolvePath(table.OwnerScript.Globals, component.String);
                     if (currentTable == null || currentTable.Type != DataType.Table) continue;
-
-
+                    
+                    
                     GetInitMethod(currentTable.Table, initList);
                 }
             }
-
+            
             foreach (var init in initList)
             {
                 try

@@ -8,11 +8,11 @@ Templates.Abilities.Warrior1Supress = {
     cost=10,
     element = "physical",
     duration=0,
-    tileset="Consolas1",
-    tileid=111,
+    tileset="res://Resources/Assets/Tilesets/transparent_packed.png",
+    tileset_region={544, 32, 16, 16},
     color={84, 93, 222},
     location="combat",
-
+    
     canCast = function (self, objEntity, targetEntity)
 	    local obj = objEntity.Data;
         if obj.rage<self.cost then

@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run Godot Run",
+            "name": "Run Godot Linux",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
@@ -22,6 +22,12 @@
             "console": "integratedTerminal",
             "stopAtEntry": false,
             "args": ["--path","${workspaceRoot}"]
+        },
+        {
+            "name": "Connect to MoonSharp",
+            "type": "moonsharp-debug",
+            "request": "attach",
+            "debugServer" : 41912
         }
     ]
 }

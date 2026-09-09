@@ -2,7 +2,9 @@ using Godot;
 using ioi;
 using ioi.Scripting;
 using ioi.Systems.Roguelike;
+using MoonSharp.Interpreter;
 
+[MoonSharpUserData]
 public partial class Global : Node
 {
 	
@@ -22,7 +24,7 @@ public partial class Global : Node
 	public static LuaScripts LuaScripts { get; private set; }
 	
 	public static RandomNumberGenerator Random { get; set; }
-
+	
 	public static StatsContainer StatsContainer {get; set;}
 	
 	public static GameLog GameLog { get; set; }
@@ -36,9 +38,11 @@ public partial class Global : Node
 	public static bool ResetCameraMove { get; set; } = false;
     
     public static bool IsGameOver { get; internal set; }
-
+	
 	public static SpawnSystem SpawnSystem { get; set; }
     public static Creature Player { get; internal set; }
+    public static PartyContainer PartyContainer { get; internal set; }
+    public static AbilitiesContainer AbilitiesContainer { get; internal set; }
 
     public override void _Ready()
 	{
@@ -50,6 +54,7 @@ public partial class Global : Node
 		SpawnSystem = new SpawnSystem();
 		LuaScripts = new LuaScripts();
 		LuaScripts.Init();
+		LuaScripts.Globals["world"] = this;
 	}
 	
 	public override void _Process(double delta)
